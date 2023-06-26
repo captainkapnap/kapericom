@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 
 
 function ICodeThis() {
@@ -11,8 +11,7 @@ function ICodeThis() {
     }
 
     // ================ LIFECYCLE ================
-    useEffect(() => {
-       })
+
 
     // ================ RETURN ================
     return (
@@ -36,7 +35,7 @@ function ICodeThis() {
                         I used React and had to remove my JS.
                     </button>
                     <button onClick={() => handleButtonClick(2)} className={`${selectedButton === 2 ? 'bg-blue-800 text-white' : ''} bg-[#f1ecec] rounded border-2 border-zinc-300 w-full h-10 text-[0.7rem] hover:bg-blue-300 hover:border-zinc-500 hover:drop-shadow-lg`}>
-                        I can't post to the forum.
+                        I can&apos;t post to the forum.
                     </button>
                     <button onClick={() => handleButtonClick(3)} className={`${selectedButton === 3 ? 'bg-blue-800 text-white' : ''} bg-[#f1ecec] rounded border-2 border-zinc-300 w-full h-10 text-[0.7rem] hover:bg-blue-300 hover:border-zinc-500 hover:drop-shadow-lgselectedButton === 3 ? 'selected' : '' `}>
                         I have in-game purchasing issues.

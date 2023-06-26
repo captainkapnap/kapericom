@@ -9,8 +9,7 @@ function ICodeThis() {
 
     
     // ================ LIFECYCLE ================
-    useEffect(() => {
-       })
+
 
     // ================ RETURN ================
     return (

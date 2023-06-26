@@ -1,6 +1,7 @@
 import { MouseEventHandler, useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import IcT from '../../components/icons';
+import Image from 'next/image';
 
 
 type ActiveMenu = 'Home' | 'Trending' | 'Browse' | 'Library' 
@@ -30,7 +31,7 @@ function SongCard({artist, song, profilePic}: SongList[number]) {
     return (
         <div className='w-full h-16 flex border-b border-slate-900'>
             <div className="w-[30%] h-full flex justify-center items-center">
-                <img src={profilePic} alt={artist} className='rounded-full w-12 h-12 object-cover hover:scale-125 transition'/>
+                <Image src={profilePic} alt={artist} className='rounded-full w-12 h-12 object-cover hover:scale-125 transition'/>
             </div>
             <div className="w-[60%] h-full flex flex-col justify-center text-stone-300">
                 <h1 className='text-sm font-semibold '>{song}</h1>
@@ -45,7 +46,7 @@ function SongCard({artist, song, profilePic}: SongList[number]) {
     )
 }
 
-function PromotedMusicCards({artist, song, image, specialMsg, indexNum}: PromotedMusic[number]) {
+function PromotedMusicCards({artist, song, image, specialMsg}: PromotedMusic[number]) {
     // const incIndex = indexNum === 0 || indexNum ? indexNum + 1 : undefined;
     // const leftPosition: number | undefined = incIndex ? incIndex * 260 : undefined;
     // <div className={`absolute top-0 ${leftPosition !== undefined ? `left-[${leftPosition}px]` : ''`}
@@ -62,7 +63,7 @@ function PromotedMusicCards({artist, song, image, specialMsg, indexNum}: Promote
                 {artist}
             </div>
             <div className="w-full h-[50%] min-[320px]:h-[70%]" id="image">
-                <img src={image} alt="image" className='w-full h-full object-cover object-top rounded-xl' />
+                <Image src={image} alt="image" className='w-full h-full object-cover object-top rounded-xl' />
             </div>
         </div>
     )
@@ -81,10 +82,11 @@ function ICodeThis() {
     function handlePlayList(selPlaylist: number): MouseEventHandler<HTMLAnchorElement> {
         setActivePlaylist(selPlaylist);
         return () => {
+            console.log("")
         }
     }
     
-    function handleNav(props: ActiveMenu): MouseEventHandler<HTMLButtonElement> {
+    function HandleNav(props: ActiveMenu): MouseEventHandler<HTMLButtonElement> {
         
         return useCallback(() => {
             setActiveMenu(props);
@@ -160,19 +162,19 @@ function ICodeThis() {
 
                 </div>
                 <div className='w-full h-[10%] bg-slate-900 leading-tight' id="bottomMenu">
-                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Home" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={handleNav('Home')}>
+                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Home" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={HandleNav('Home')}>
                             <IcT icons="home" classNameCustom='mx-auto'/>
                             <small className=''>Home</small>
                         </button>
-                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Trending" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={handleNav('Trending')}>
+                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Trending" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={HandleNav('Trending')}>
                             <IcT icons="flame" classNameCustom='mx-auto'/>
                             <small>Trending</small>
                         </button>
-                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Browse" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={handleNav('Browse')}>
+                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Browse" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={HandleNav('Browse')}>
                             <IcT icons="search" classNameCustom='mx-auto'/>
                             <small>Browse</small>
                         </button>
-                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Library" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={handleNav('Library')}>
+                        <button className={`w-[25%] h-full hover:bg-slate-800 ${activeMenu === "Library" ? 'text-red-600 font-semibold bg-slate-800' : ''}`} onClick={HandleNav('Library')}>
                             <IcT icons="library"classNameCustom='mx-auto'/>
                             <small>Library</small>
                         </button> 
