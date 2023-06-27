@@ -8,4 +8,5 @@ export const listOfPages: ListofPages = [
     {type: "Template", fileName: 'edit-name-email-date.tsx', title: 'Edit Name Email Date - Validation not Working'},
     {type: "Template", fileName: 'music.tsx', title: 'Music Player Template'},
     {type: "Template", fileName: 'popup-w-buttons.tsx', title: 'Selectable Buttons'},
+    {type: "Component", fileName: 'popup-msg-canClose.tsx', title: 'Closable Msg'},
 ]

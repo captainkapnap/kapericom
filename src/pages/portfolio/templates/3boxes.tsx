@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-
-
 function ICodeThis() {
     // ================ STATE ================
 
