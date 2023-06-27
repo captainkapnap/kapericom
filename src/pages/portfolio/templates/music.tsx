@@ -31,7 +31,7 @@ function SongCard({artist, song, profilePic}: SongList[number]) {
     return (
         <div className='w-full h-16 flex border-b border-slate-900'>
             <div className="w-[30%] h-full flex justify-center items-center">
-                <Image src={profilePic} alt={artist} className='rounded-full w-12 h-12 object-cover hover:scale-125 transition'/>
+                <Image src={profilePic} alt={artist}  width={48} height={48} className='rounded-full object-cover w-12 h-12 hover:scale-125 transition'/>
             </div>
             <div className="w-[60%] h-full flex flex-col justify-center text-stone-300">
                 <h1 className='text-sm font-semibold '>{song}</h1>
@@ -63,7 +63,7 @@ function PromotedMusicCards({artist, song, image, specialMsg}: PromotedMusic[num
                 {artist}
             </div>
             <div className="w-full h-[50%] min-[320px]:h-[70%]" id="image">
-                <Image src={image} alt="image" className='w-full h-full object-cover object-top rounded-xl' />
+                <Image src={image} alt="image" width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto'}} className='w-full h-full object-cover object-top rounded-xl' />
             </div>
         </div>
     )
