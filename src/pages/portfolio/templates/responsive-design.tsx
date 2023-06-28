@@ -14,9 +14,9 @@ export default function KevinPowellCSS() {
             <div id="bodyDivRD" className="">
 
                 <section className='text-center' id="bg-light">
-                    <div className="containerRD container--narrow">
+                    <div className="containerRD container--narrow border">
                         <p>Lorem, ipsum dolor.</p>
-                        <h1 className="h1Responsive">Responsive layouts don't have to be a struggle</h1>
+                        <h1 className="h1Responsive">Responsive layouts don&apos;t have to be a struggle</h1>
                     </div>
                 </section>
 
@@ -42,7 +42,7 @@ export default function KevinPowellCSS() {
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facere distinctio doloremque sed nesciunt?</p>
                             </div>
                             <div>
-                                <Image src="/images/image-01.jpg" alt="super cool lion" width={400} height={200}  />
+                                <Image src="/images/image-01.jpg" alt="super cool lion" width={400} height={200} className='imgNext' />
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export default function KevinPowellCSS() {
                     <div className="containerRD">
                         <div className='split'>
                             <div>
-                                <Image src="/images/image-02.jpg" alt="super cool lion" width={400} height={200}  />
+                                <Image src="/images/image-02.jpg" alt="super cool lion" width={400} height={200} className='imgNext' />
                             </div>
                         </div>
                         <div>
