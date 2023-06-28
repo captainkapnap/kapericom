@@ -1,5 +1,6 @@
 import IcT from '../../components/icons';
-import { useEffect, useState, FormEvent, ChangeEvent, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 
 
 // _____________________________________________________

@@ -1,4 +1,5 @@
-import { MouseEventHandler, useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
+import type { MouseEventHandler } from 'react';
 import Link from 'next/link';
 import IcT from '../../components/icons';
 import Image from 'next/image';
@@ -74,7 +75,7 @@ function ICodeThis() {
     // ================ STATE ================
     const [activeMenu, setActiveMenu] = useState<ActiveMenu>('Browse');
     const [activePlaylist, setActivePlaylist] = useState<number>(0)
-    const [playlistsMenu, setPlaylistsMenu] = useState<PlaylistsMenu>(['New Music', 'Playlists', 'Top Charts', 'Genre']);
+    const [playlistsMenu] = useState<PlaylistsMenu>(['New Music', 'Playlists', 'Top Charts', 'Genre']);
     const scrollContainerActiveMenuRef = useRef<HTMLDivElement>(null);
     const scrollContainerPromotedRef = useRef<HTMLDivElement>(null);
 
