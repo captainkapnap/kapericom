@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import KaperiPortfolio from "./components/portfolio";
 
 export default function Home() {

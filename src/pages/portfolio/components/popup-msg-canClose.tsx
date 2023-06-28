@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import IcT from "~/pages/components/icons";
 
 type Messages = { msg2: string | null | undefined, type: 'Confirmation' | 'Error' | 'Success' | null | undefined, errorMsg: string | null | undefined}[] 
@@ -12,7 +12,7 @@ const messages: Messages = [
 function ICodeThis() {
     // ================ STATE ================
     const [activeMsg, setActiveMsg] = useState<Messages>([{msg2: null, type: null, errorMsg: null}]);
-    const [bgColor, setBgColor] = useState<string>();
+    const [bgColor, setBgColor] = useState<string>('bg-sky-500');
 
     // ================ HELPERS ================
     function handleButton(msg2display: number) {
@@ -61,13 +61,13 @@ function ICodeThis() {
         if (activeMsg[0]?.type === "Error") {
             const timeout = setTimeout(() => {
                 setBgColor('bg-rose-500');
-            }, 1000);
+            }, 1001);
 
             return () => clearTimeout(timeout);
         } else {
             setBgColor('bg-sky-500');
         }
-    })
+    }, [activeMsg])
 
     // ================ RETURN ================
     return (
