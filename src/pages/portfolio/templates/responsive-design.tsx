@@ -54,10 +54,10 @@ export default function KevinPowellCSS() {
                             <div>
                                 <Image src="/images/image-02.jpg" alt="super cool lion" width={400} height={200} className='imgNext' />
                             </div>
-                        </div>
                         <div>
                             <h2 className='h2Responsive'>Created with Care</h2>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam asperiores amet placeat corporis eius?</p>
+                        </div>
                         </div>
                     </div>
                 </section>
