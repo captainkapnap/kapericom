@@ -65,3 +65,19 @@
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
 }
+
+/* popup Msg Closing Animation */
+@keyframes leftOut {
+    0% {
+        transform: translateX(0%)
+    }
+    100% {
+        transform: translateX(-120%)
+    }
+}
+
+.animate-left-out {
+    animation: leftOut;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+}

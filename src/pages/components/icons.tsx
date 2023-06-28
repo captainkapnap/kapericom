@@ -1,6 +1,6 @@
 import React from 'react';
 type IcTProps = {
-    icons: "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
+    icons: "components" | "template" | "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
     classNameCustom?: string;
   };
   
@@ -85,17 +85,38 @@ function IcT({icons, classNameCustom}: IcTProps): JSX.Element | null {
                 <path d="M5 12l5 5l10 -10"></path>
             </svg>
         )
+    } else if (icons === "components") {
+        return (
+<svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M3 12l3 3l3 -3l-3 -3z"></path>
+   <path d="M15 12l3 3l3 -3l-3 -3z"></path>
+   <path d="M9 6l3 3l3 -3l-3 -3z"></path>
+   <path d="M9 18l3 3l3 -3l-3 -3z"></path>
+</svg>
+        )
+    } else if (icons === "template") {
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 4m0 1a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1z"></path>
+                <path d="M4 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                <path d="M14 12l6 0"></path>
+                <path d="M14 16l6 0"></path>
+                <path d="M14 20l6 0"></path>
+            </svg>
+
+        )
     }
-
-
     return(null);
 }
 
 export default IcT;
 
+/*
+} else if (icons === "") {
+    return (
 
-// } else if (icons === "") {
-//     return (
-
-//     )
-// }
+    )
+}
+*/
