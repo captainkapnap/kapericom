@@ -1,3 +1,15 @@
+/* normalization */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
 
 /* template-music.tsx */
 #playlists::-webkit-scrollbar-track,
@@ -80,4 +92,61 @@
     animation: leftOut;
     animation-duration: 1s;
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+/* RESPONSIVE DESIGN */
+:root {
+    --clr-primary-200: #f3eed9;
+    --clr-primary-400: #824936;
+
+    --clr-neutral-100: #FFF;
+    --clr-neutral-900: #222C2A;
+
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-accent: 'Playfair Display', serif;
+}
+
+#bodyDivRD {
+    font-family: var(--ff-primary);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+}
+
+div#bodyDivRD section {
+    padding: 3rem 0;
+}
+
+.containerRD {
+    margin-inline: auto;
+    width: min(90%, 70.5rem)
+}
+
+.container--narrow {
+    max-width: 34rem;
+}
+
+.h1Responsive,
+.h2Responsive,
+.h3Responsive {
+    font-family: var(--ff-accent);
+    font-weight: 900;
+    line-height: 1;
+}
+
+#bg-light { 
+    background-color: var(--clr-primary-200);
+} 
+#bg-primary { 
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-400);
+}
+#bg-dark { 
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-neutral-900);
+}
+
+#bg-primary .h2Responsive,
+#bg-dark .h2Responsive {
+    color: var(--clr-primary-200);
 }

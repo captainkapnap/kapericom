@@ -9,4 +9,5 @@ export const listOfPages: ListofPages = [
     {type: "Template", fileName: 'music.tsx', title: 'Music Player Template', desc: ''},
     {type: "Template", fileName: 'popup-w-buttons.tsx', title: 'Selectable Buttons', desc: ''},
     {type: "Component", fileName: 'popup-msg-canClose.tsx', title: 'Closable Msg', desc: ''},
+    {type: "Template", fileName: 'responsive-design.tsx', title: 'Responsive Design', desc: 'Followed Kevin Powells CSS YouTube video on Responsive design: https://www.youtube.com/watch?v=bn-DQCifeQQ '},
 ]
