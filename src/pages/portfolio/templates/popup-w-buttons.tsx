@@ -37,7 +37,7 @@ function ICodeThis() {
                     <button onClick={() => handleButtonClick(2)} className={`${selectedButton === 2 ? 'bg-blue-800 text-white' : ''} bg-[#f1ecec] rounded border-2 border-zinc-300 w-full h-10 text-[0.7rem] hover:bg-blue-300 hover:border-zinc-500 hover:drop-shadow-lg`}>
                         I can&apos;t post to the forum.
                     </button>
-                    <button onClick={() => handleButtonClick(3)} className={`${selectedButton === 3 ? 'bg-blue-800 text-white' : ''} bg-[#f1ecec] rounded border-2 border-zinc-300 w-full h-10 text-[0.7rem] hover:bg-blue-300 hover:border-zinc-500 hover:drop-shadow-lgselectedButton === 3 ? 'selected' : '' `}>
+                    <button onClick={() => handleButtonClick(3)} className={`${selectedButton === 3 ? 'bg-blue-800 text-white' : ''} bg-[#f1ecec] rounded border-2 border-zinc-300 w-full h-10 text-[0.7rem] hover:bg-blue-300 hover:border-zinc-500 hover:drop-shadow-lg `}>
                         I have in-game purchasing issues.
                     </button>
                     

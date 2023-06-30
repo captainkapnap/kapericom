@@ -1,0 +1,66 @@
+.cutoff-text {
+    --max-lines: 3;
+    --line-height: 1.4;
+    --max-height: calc(var(--max-lines) * 1em * var(--line-height));
+
+    /* gets the height of each line.. 1em = size of font */
+    /* max-height allows for each div to be sized according to text length, not the largest text size */
+    max-height: var(--max-height);
+    margin-bottom: 10;
+    line-height: var(--line-height);
+
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+
+}
+
+.cutoff-text:has(+ .expand-btn:not(:checked))::before {
+    content: '';
+    position: absolute;
+
+    height: calc(1em * var(--line-height));
+    width: 100%;
+
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, #FFF);
+}
+
+.expand-btn {
+    --clr-btn: rgb(95, 95, 95);
+    --clr-btn-border: rgb(66, 66, 66);
+    --clr-btn-text: black;
+
+    appearance: none;
+    border: 0.15em solid var(--clr-btn-border);
+    position: absolute;
+    padding: 0.1em;
+    background: var(--clr-btn);
+    bottom: 0;
+    right: 1em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    margin: 0.05rem;
+
+
+}
+
+.expand-btn:hover {
+    background-color: blueviolet;
+}
+
+.expand-btn::before {
+    content: 'Expand';
+}
+
+.expand-btn:checked::before {
+    content: 'Collapse';
+}
+
+/* if the direct sibling (+) of cutoff-text is checked then.. */
+.cutoff-text:has(+ .expand-btn:checked) {
+    max-height: none;
+    background-color: black;
+    background: black;
+}
