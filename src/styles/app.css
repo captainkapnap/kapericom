@@ -189,3 +189,20 @@ p {
 }
 
     
+/* Testimonials */
+
+.testimonial-text {
+    --line-height: 1.4;
+
+    line-height: var(--line-height);
+    font-size: clamp(0.4rem, 1rem, 2rem)
+}
+
+.testimonialDiv {
+    /* border: 1px solid transparent; */
+    outline: transparent;
+    outline-offset: 10px;
+    box-shadow: 10px 10px 0 -3px rgb(248 250 252), black 10px 10px;
+    /* box-shadow: rgb(255, 255, 255) 10px 10px 0px -3px, black 10px 10px; */
+}
+

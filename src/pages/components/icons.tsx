@@ -1,6 +1,6 @@
 import React from 'react';
 type IcTProps = {
-    icons: "components" | "template" | "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
+    icons: "quote" | "components" | "template" | "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
     classNameCustom?: string;
   };
   
@@ -107,7 +107,16 @@ function IcT({icons, classNameCustom}: IcTProps): JSX.Element | null {
             </svg>
 
         )
+    } else if (icons === "quote") {
+        return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+   <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
+</svg>
+        )
     }
+
     return(null);
 }
 
