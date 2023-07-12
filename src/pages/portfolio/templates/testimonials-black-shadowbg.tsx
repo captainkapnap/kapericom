@@ -17,15 +17,15 @@ function ICodeThis() {
     function ShowTestimonials({testimonials}: {testimonials: testimonials}) {
 
         return (
-            <div className='container flex justify-center items-stretc'>
+            <div className='containerTestimonial border-red-900 border justify-center items-stretch'>
                 {testimonials.map((testInfo, idx) => (
-                    <div className='testimonialDiv rounded-lg w-1/3 m-3 shadow border' key={idx}>
+                    <div className='testimonialDiv rounded-lg  m-3 shadow border' key={idx}>
                         <div className=''>
                             <IcT icons="quote" classNameCustom="h-4 mt-2"/>
                         </div>
 
                         <div className=''>
-                            <p className='testimonial-text mx-2'>
+                            <p className='testimonial-text mx-1'>
                                 {testInfo.testimonial}
                             </p>
                         </div>
@@ -34,9 +34,11 @@ function ICodeThis() {
                             <IcT icons="quote" classNameCustom="h-4 align-right"/>
                         </div>
 
-                        <div className='font-bold mx-2'>
+                        <div className='font-bold mx-1'>
                             <p></p>
-                            {testInfo.nameOfPerson} {testInfo.title} at {testInfo.company}
+                            <p className='testimonial-text'>
+                                {testInfo.nameOfPerson} {testInfo.title} at {testInfo.company}
+                            </p>
                         </div>
                         
                     </div>
@@ -54,7 +56,7 @@ function ICodeThis() {
         <div id="bodyDiv" className="bg-slate-50 flex flex-col items-center min-h-screen">
             <div className='m-10 w-full'>
                 <div className='mx-4 h-8'>
-                    <h1 className='text-xl font-bold'>Testimonials</h1>
+                    <h1 className='testimonial-text-header font-bold'>Testimonials</h1>
                     <div className='h-40'>
                         <ShowTestimonials testimonials={testimonial} />
                     </div>

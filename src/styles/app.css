@@ -195,9 +195,12 @@ p {
     --line-height: 1.4;
 
     line-height: var(--line-height);
-    font-size: clamp(0.4rem, 1rem, 2rem)
+    font-size: clamp(1rem, 2.5vw, 2rem)
 }
 
+.testimonial-text-header {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);    
+}
 .testimonialDiv {
     /* border: 1px solid transparent; */
     outline: transparent;
@@ -206,3 +209,10 @@ p {
     /* box-shadow: rgb(255, 255, 255) 10px 10px 0px -3px, black 10px 10px; */
 }
 
+@media (min-width: 30em) {
+    .containerTestimonial {
+        display: flex;
+        flex-direction: row;
+        max-height: fit-content;
+    }
+}
