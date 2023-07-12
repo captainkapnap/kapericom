@@ -17,7 +17,7 @@ function ICodeThis() {
     function ShowTestimonials({testimonials}: {testimonials: testimonials}) {
 
         return (
-            <div className='containerTestimonial border-red-900 border justify-center items-stretch'>
+            <div className='containerTestimonial justify-center items-stretch'>
                 {testimonials.map((testInfo, idx) => (
                     <div className='testimonialDiv rounded-lg  m-3 shadow border' key={idx}>
                         <div className=''>
