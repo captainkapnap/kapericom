@@ -216,3 +216,12 @@ p {
         max-height: fit-content;
     }
 }
+
+/* WEBSITE SPONSORSHIP */
+
+.sponsorshipContainer h1 {
+    font-size: clamp(1rem, 2.5vw, 2rem)
+}
+.sponsorshipContainer p {
+    font-size: clamp(0.7rem, 1.7vw, 1.2rem)
+}
