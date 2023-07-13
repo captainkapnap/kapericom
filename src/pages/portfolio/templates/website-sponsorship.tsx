@@ -1,8 +1,6 @@
 
 
-type sponsorshipType = [
-    {title: string, cost: string, bullet1?: string | null, bullet2?: string | null, bullet3?: string | undefined, note?: string | undefined}
-]
+type sponsorshipType =  {title: string, cost: string, bullet1?: string | null, bullet2?: string | null, bullet3?: string | undefined, note?: string | undefined}[]
 
 const sponsorshipData: sponsorshipType = [
     {title: "Sidebar Block", cost: "$250/mo", bullet1: "7 bazillion impressions", bullet2: "120x200"},
@@ -15,7 +13,7 @@ function ICodeThis() {
 
 
     // ================ HELPERS ================
-    function ShowCards({props}: {props: sponsorshipType}) {
+    function ShowCards({props}: {props: sponsorshipType[number]}) {
         
         return (
             <div className='mx-2 bg-slate-50 p-4 rounded-t border-red-400 border'>
