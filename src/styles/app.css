@@ -218,10 +218,40 @@ p {
 }
 
 /* WEBSITE SPONSORSHIP */
-
+:root {
+    --p-text-clamp: clamp(0.7rem, 1.7vw, 1.2rem);
+    --h1-text-clamp: clamp(1rem, 2.5vw, 2rem);
+}
+/* 
 .sponsorshipContainer h1 {
-    font-size: clamp(1rem, 2.5vw, 2rem)
+    font-size: var(--h1-text-clamp);
 }
 .sponsorshipContainer p {
-    font-size: clamp(0.7rem, 1.7vw, 1.2rem)
+    font-size: var(--p-text-clamp);
+} */
+.testingSponsorship {
+    height: clamp(5rem, 50vw, 25rem);
+}
+
+@media (min-width: 33em) {
+    .testingSponsorship {
+        display: flex;
+        flex-direction: row;
+        max-height: fit-content;
+    }
+    .sponsorshipCard {
+        margin: 10px;
+        
+    }
+
+}
+.sponsorshipContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sponsorshipContainer::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+.sponsorshipContainer::-webkit-scrollbar-thumb {
+  background: transparent;
 }

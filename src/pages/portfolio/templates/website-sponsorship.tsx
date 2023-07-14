@@ -16,27 +16,29 @@ function ICodeThis() {
     function ShowCards({props}: {props: sponsorshipType[number]}) {
         
         return (
-            <div className='mx-2 bg-slate-50 p-4 rounded-t border-red-400 border'>
-                <div className='sponsorshipTop flex flex-col justify-center items-center'>
-                    <div className=''>
-                        {props.title}
+            <div className='mx-2 lg:mt-8 my-4 bg-slate-50 rounded-t drop-shadow-md sponsorshipCard'>
+                <div className='sponsorshipTop h-2/3 flex flex-col p-2 border-b-2'>
+                    <div className='h-1/3 w-full flex justify-center items-center'>
+                        <h1 className='text-h1_dynamic font-semibold'>{props.title}</h1>
                     </div>
-                    <div className=''>
-                        {props.cost}
+                    <div className='h-1/3 w-full flex justify-center items-center'>
+                        <p className='text-cost_dynamic font-bold'>{props.cost}</p>
                     </div>
-                    <div className=''>
+                    <div className='h-1/3 w-full flex justify-center items-center'>
                         <button className='py-1 px-2 hover:bg-sky-700 bg-red-400 rounded border border-red-800'>
                             Add to Cart
                         </button>
                     </div>
                 </div>
 
-                <div className='sponsorshipBtm'>
-                    <ul>
-                        <li>{props.bullet1}</li>
-                        <li>{props.bullet2}</li>
-                        <li>{props.bullet3}</li>
-                    </ul>
+                <div className='sponsorshipBtm h-1/3 flex justify-center items-center'>
+                    <div className='text-ul_dynamic p-6'>
+                        <ul className='list-disc'>
+                            {props.bullet1 && <li>{props.bullet1}</li> }
+                            {props.bullet2 && <li>{props.bullet2}</li> }
+                            {props.bullet3 && <li>{props.bullet3}</li> }
+                        </ul>
+                    </div>
                 </div>
 
             </div>
@@ -49,13 +51,13 @@ function ICodeThis() {
     // ================ RETURN ================
     return (
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="bg-yellow-400 flex flex-col justify-center items-center min-h-screen">
-            <div className='sponsorshipContainer border-4 border-red-800 bg-slate-100 w-3/4 min-h-[80vh] rounded-lg shadow-xl'>
+        <div id="bodyDiv" className="bg-yellow-400 flex justify-center items-center min-h-screen">
+            <div className='sponsorshipContainer border-4 border-red-800 bg-slate-100 w-3/4 min-h-[80vh] rounded-lg shadow-xl overflow-hidden overflow-y-scroll'>
                 <div className='w-full px-8 pt-6'>
-                    <h1 className='font-bold'>Website Sponsorship</h1>
-                    <p className='leading-none'>In the event that we do not have a full 30 days, we extrapolate based on data we have.</p>
+                    <h1 className='font-bold text-h1_dynamic'>Website Sponsorship</h1>
+                    <p className='leading-none text-p_dynamic'>In the event that we do not have a full 30 days, we extrapolate based on data we have.</p>
                 </div>
-                <div className='flex justify-center items-center'>
+                <div className='justify-center items-stretch testingSponsorship'>
                     {sponsorshipData.map((data, idx) => (
                         <ShowCards props={data} key={idx} />
                     ))}
