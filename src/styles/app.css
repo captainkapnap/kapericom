@@ -255,3 +255,24 @@ p {
 .sponsorshipContainer::-webkit-scrollbar-thumb {
   background: transparent;
 }
+
+/* Keyboard */
+:root {
+    --kb-padding-x: clamp(0.45em, 2.8vw, 5em);
+    --kb-padding-y: clamp(0.35em, 2vh, 5em);
+    --kb-margin-x: clamp(0.15em, 1vw, 1em);
+    --kb-margin-y: clamp(0.3em, 2vh, 2em);
+}
+
+#kbButton {
+    padding-left: var(--kb-padding-x);
+    padding-right: var(--kb-padding-x);
+    padding-top: var(--kb-padding-y);
+    padding-bottom: var(--kb-padding-y);
+    margin-left: var(--kb-margin-x);
+    margin-right: var(--kb-margin-x);
+    margin-top: var(--kb-margin-y);
+    margin-bottom: var(--kb-margin-y);
+    font-size: var(--h1-text-clamp);
+
+}

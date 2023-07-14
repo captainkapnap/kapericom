@@ -12,4 +12,5 @@ export const listOfPages: ListofPages = [
     {type: "Template", fileName: 'responsive-design.tsx', title: 'Responsive Design', desc: 'Followed Kevin Powells CSS YouTube video on Responsive design: https://www.youtube.com/watch?v=bn-DQCifeQQ '},
     {type: "Template", fileName: 'testimonials-black-shadowbg.tsx', title: 'Testimonails w/ Shadow Outline', desc: ''},
     {type: "Template", fileName: 'website-sponsorship.tsx', title: 'Website Sponsorship', desc: ''},
+    {type: "Component", fileName: 'keyboard.tsx', title: 'Keyboard', desc: ''},
 ]
