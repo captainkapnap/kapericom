@@ -57,7 +57,7 @@ function ICodeThis() {
       <div id="toggleDarkDiv" className="dark">
         <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end min-h-screen">
             <div className='w-full ' id="kbWrapper">
-                <div className='h-[50vh] bg-indigo-800 rounded-t-2xl' id="kbContainer">
+                <div className='h-[50vh] bg-indigo-800 rounded-t' id="kbContainer">
                     <CreateKeys whichKeyboard={keyboardState} />
                 </div>
             </div>
