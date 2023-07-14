@@ -263,6 +263,8 @@ p {
     --kb-margin-x: clamp(0.12em, 0.8vw, 1em);
     --kb-margin-y: clamp(0.4em, 1.8vh, 1.5em);
     --kb-fontsize: clamp(2rem, 2vw, 3rem);
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
 }
 
 #kbButton {
@@ -275,7 +277,7 @@ p {
     margin-top: var(--kb-margin-y);
     margin-bottom: var(--kb-margin-y);
     font-size: var(--h1-text-clamp);
-
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 #kbContainer {

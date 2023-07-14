@@ -1,6 +1,6 @@
 import React from 'react';
 type IcTProps = {
-    icons: "quote" | "components" | "template" | "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
+    icons: "mic" | "world" | "backspace" | "up" | "quote" | "components" | "template" | "check" | "checks" | "x" | "chevronUp" | "chevronDown" | "search" | "dots" | "home" | "flame" | "library";
     classNameCustom?: string;
   };
   
@@ -115,6 +115,42 @@ function IcT({icons, classNameCustom}: IcTProps): JSX.Element | null {
    <path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path>
 </svg>
         )
+    } else if (icons === "up") {
+        return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+       <path d="M10.586 3l-6.586 6.586a2 2 0 0 0 -.434 2.18l.068 .145a2 2 0 0 0 1.78 1.089h2.586v7a2 2 0 0 0 2 2h4l.15 -.005a2 2 0 0 0 1.85 -1.995l-.001 -7h2.587a2 2 0 0 0 1.414 -3.414l-6.586 -6.586a2 2 0 0 0 -2.828 0z" strokeWidth="0" fill="currentColor"></path>
+    </svg>
+        )
+    } else if (icons === "backspace") {
+        return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+       <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z"></path>
+       <path d="M12 10l4 4m0 -4l-4 4"></path>
+    </svg>
+        )
+    } else if (icons === "mic") {
+        return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+       <path d="M9 2m0 3a3 3 0 0 1 3 -3h0a3 3 0 0 1 3 3v5a3 3 0 0 1 -3 3h0a3 3 0 0 1 -3 -3z"></path>
+       <path d="M5 10a7 7 0 0 0 14 0"></path>
+       <path d="M8 21l8 0"></path>
+       <path d="M12 17l0 4"></path>
+    </svg>
+        )
+    } else if (icons === "world") {
+        return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+       <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+       <path d="M3.6 9h16.8"></path>
+       <path d="M3.6 15h16.8"></path>
+       <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+       <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+    </svg>
+        )
     }
 
     return(null);
@@ -125,7 +161,14 @@ export default IcT;
 /*
 } else if (icons === "") {
     return (
-
+<svg xmlns="http://www.w3.org/2000/svg" className={classNameCustom ?? undefined} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+   <path d="M3.6 9h16.8"></path>
+   <path d="M3.6 15h16.8"></path>
+   <path d="M11.5 3a17 17 0 0 0 0 18"></path>
+   <path d="M12.5 3a17 17 0 0 1 0 18"></path>
+</svg>
     )
 }
 */
