@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+const kbKeys = {
+    
+}
+
 function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
@@ -8,7 +12,7 @@ function ICodeThis() {
     function CreateKeys({whichKeyboard}: {whichKeyboard: number}) {
 
         return (
-            <div className='flex flex-col justify-center items-center text-2xl'>
+            <div className='flex flex-col justify-center items-center'>
                 <div className='h-1/4' id="kbRow1">
                     {/* 10 keys */}
                     {Array.from({ length: 10}).map((_, idx) => (
@@ -56,8 +60,8 @@ function ICodeThis() {
     return (
       <div id="toggleDarkDiv" className="dark">
         <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end min-h-screen">
-            <div className='w-full ' id="kbWrapper">
-                <div className='h-[50vh] bg-indigo-800 rounded-t' id="kbContainer">
+            <div className='w-full' id="kbWrapper">
+                <div className='bg-indigo-800 rounded-t flex justify-center items-center' id="kbContainer">
                     <CreateKeys whichKeyboard={keyboardState} />
                 </div>
             </div>

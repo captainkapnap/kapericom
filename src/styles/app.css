@@ -258,10 +258,11 @@ p {
 
 /* Keyboard */
 :root {
-    --kb-padding-x: clamp(0.45em, 2.8vw, 5em);
-    --kb-padding-y: clamp(0.35em, 2vh, 5em);
+    --kb-padding-x: clamp(0.45em, 2.8vw, 4em);
+    --kb-padding-y: clamp(1vh, 1.5vh, 2.5vh);
     --kb-margin-x: clamp(0.12em, 0.8vw, 1em);
-    --kb-margin-y: clamp(0.3em, 2vh, 2em);
+    --kb-margin-y: clamp(0.4em, 1.8vh, 1.5em);
+    --kb-fontsize: clamp(2rem, 2vw, 3rem);
 }
 
 #kbButton {
@@ -275,4 +276,8 @@ p {
     margin-bottom: var(--kb-margin-y);
     font-size: var(--h1-text-clamp);
 
+}
+
+#kbContainer {
+    max-height: clamp(30vh, 62vh, 65vh)
 }
