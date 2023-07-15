@@ -1,3 +1,21 @@
+/* variables */
+
+:root {
+    --clr-primary-200: #f3eed9;
+    --clr-primary-400: #824936;
+
+    --clr-neutral-100: #FFF;
+    --clr-neutral-900: #222C2A;
+
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-accent: 'Playfair Display', serif;
+    --p-text-clamp: clamp(0.7rem, 1.7vw, 1.2rem);
+    --h1-text-clamp: clamp(1rem, 2.5vw, 2rem);
+
+
+
+}
+
 /* normalization */
 *,
 *::before,
@@ -95,16 +113,7 @@ p {
 }
 
 /* RESPONSIVE DESIGN */
-:root {
-    --clr-primary-200: #f3eed9;
-    --clr-primary-400: #824936;
 
-    --clr-neutral-100: #FFF;
-    --clr-neutral-900: #222C2A;
-
-    --ff-primary: 'Roboto', sans-serif;
-    --ff-accent: 'Playfair Display', serif;
-}
 
 #bodyDivRD {
     font-family: var(--ff-primary);
@@ -218,10 +227,7 @@ p {
 }
 
 /* WEBSITE SPONSORSHIP */
-:root {
-    --p-text-clamp: clamp(0.7rem, 1.7vw, 1.2rem);
-    --h1-text-clamp: clamp(1rem, 2.5vw, 2rem);
-}
+
 /* 
 .sponsorshipContainer h1 {
     font-size: var(--h1-text-clamp);
@@ -258,16 +264,29 @@ p {
 
 /* Keyboard */
 :root {
+        /* KEYBOARD */
+    /* should add + 1rem to any vw/vh so when user zooms in/out, the zoom changes the rem */
+    /* zoom does not affect vw/vh */
     --kb-padding-x: clamp(0.45em, 2.8vw, 4em);
     --kb-padding-y: clamp(1vh, 1.5vh, 2.5vh);
-    --kb-margin-x: clamp(0.12em, 0.8vw, 1em);
+    --kb-margin-x: clamp(0.12em, 0.7vw, 1em);
     --kb-margin-y: clamp(0.4em, 1.8vh, 1.5em);
     --kb-fontsize: clamp(2rem, 2vw, 3rem);
+    --kb-padding-ict: clamp(0.3em, 0.55em, 0.65em);
+    --kb-transform-ict: clamp(-2px, 0.1vh + 20px ,4px);
+
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
 }
 
-#kbButton {
+
+@media (max-width: 20em) {
+    :root {
+        --kb-transform-ict: 5px;
+    }
+}
+
+.kbButton {
     padding-left: var(--kb-padding-x);
     padding-right: var(--kb-padding-x);
     padding-top: var(--kb-padding-y);
@@ -283,3 +302,47 @@ p {
 #kbContainer {
     max-height: clamp(30vh, 62vh, 65vh)
 }
+
+#kbButton-19 {
+    /* switch kb */
+    background-color: rgb(41, 8, 85);
+    padding-top: var(--kb-padding-ict);
+    padding-bottom: var(--kb-padding-ict);
+    padding-left: var(--kb-padding-ict);
+    padding-right: var(--kb-padding-ict);
+    transform: translateY(var(--kb-transform-ict));
+}
+#kbButton-27 {
+    /* backspace */
+    background-color: rgb(255, 8, 8);
+    padding-top: var(--kb-padding-ict);
+    padding-bottom: var(--kb-padding-ict);
+    padding-left: var(--kb-padding-ict);
+    padding-right: var(--kb-padding-ict);
+    transform: translateY(var(--kb-transform-ict));
+}
+#kbButton-29 {
+    /* world */
+    padding-top: var(--kb-padding-ict);
+    padding-bottom: var(--kb-padding-ict);
+    padding-left: var(--kb-padding-ict);
+    padding-right: var(--kb-padding-ict);
+    transform: translateY(4px);
+}
+#kbButton-30 {
+    /* Mic */
+    padding-top: var(--kb-padding-ict);
+    padding-bottom: var(--kb-padding-ict);
+    padding-left: var(--kb-padding-ict);
+    padding-right: var(--kb-padding-ict);
+    transform: translateY(4px);
+}
+#kbButton-31 {
+    /* space */
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+
+
