@@ -1,4 +1,4 @@
-import { useState, MouseEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import IcT from "~/pages/components/icons";
 
 type RowKeys = {
@@ -268,7 +268,7 @@ function ICodeThis() {
         if (kbText === 'space') {
             kbText = ' '
         }
-        setMessage(message + kbText)
+        setMessage(`${message.toString()}${kbText.toString()}`)
         
     }
     // ================ LIFECYCLE ================

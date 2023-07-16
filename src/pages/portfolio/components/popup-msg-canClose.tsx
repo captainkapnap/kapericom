@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import IcT from "~/pages/components/icons";
 
 type Messages = { msg2: string | null | undefined, type: 'Confirmation' | 'Error' | 'Success' | null | undefined, errorMsg: string | null | undefined}[] 

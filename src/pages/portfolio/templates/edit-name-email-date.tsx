@@ -156,8 +156,7 @@ function ICodeThis() {
         if (remainingErrors.length === 0 && isSubmit){
             console.log("*** SUBMITTED SUCCESSFULLY WITH: ", formValues)
         }
-    // }, [formErrors, isSubmit])
-    }, [isSubmit])
+    }, [isSubmit, formErrors, formValues])
 
     // ******************************************************
     // * All sorts of fucked up here
