@@ -181,7 +181,7 @@ const kbKeys: RowKeys = {
 function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
-    const [message, setMessage] = useState<string>('test');
+    const [message, setMessage] = useState<string>('> ');
     const [fontSize, setFontSize] = useState<number>(80);
 
     // ================ HELPERS ================
@@ -263,7 +263,6 @@ function ICodeThis() {
             setKeyboardState(1);
         }
 
-        console.log(kbKeysIndex[kbButtonId], kbText)
         
         if (kbText === 'space') {
             kbText = ' '
@@ -282,6 +281,9 @@ function ICodeThis() {
         } else if (kbButtonPressed === 'up' || kbButtonPressed === '123' || kbButtonPressed === 'ABC') {
         } else {
             setMessage(`${message.toString()}${kbText.toString()}`)
+            if (keyboardState === 1) {
+                setKeyboardState(2)
+            }
         }
         
         
