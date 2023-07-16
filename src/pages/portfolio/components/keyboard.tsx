@@ -279,6 +279,7 @@ function ICodeThis() {
             setMessage(`${message.toString()}${kbText}`)
         } else if (kbButtonPressed === 'mic') {
             window.alert("You have switched your microphone to ON.")
+        } else if (kbButtonPressed === 'up' || kbButtonPressed === '123' || kbButtonPressed === 'ABC') {
         } else {
             setMessage(`${message.toString()}${kbText.toString()}`)
         }
