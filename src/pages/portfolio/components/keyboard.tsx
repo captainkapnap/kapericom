@@ -189,45 +189,65 @@ function ICodeThis() {
             <div className='flex flex-col justify-center items-center'>
                 <div className='h-1/4' id="kbRow1">
                     {/* 10 keys */}
-                    {Array.from({ length: 10}).map((_, idx) => (
-                        <button onClick={(e) => handleKeyboard(e.currentTarget.id, kbKeys[keyboardState].row1[idx])} className='shadow-lg text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx} id={`kbButton-${idx}`}>
-                            {kbKeys[keyboardState].row1[idx]}
-                        </button>
-                    ))}
+                    {Array.from({ length: 10 }).map((_, idx) => {
+                        const rowKeys = kbKeys[keyboardState]?.row1;
+                        const keyValue = rowKeys?.[idx];
+                        if (keyValue === undefined) return <></>
+                        return (
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx}  id={`kbButton-${idx}`} >
+                                {keyValue}
+                            </button>
+                        )
+                    })}
                 </div>
 
                 <div className='h-1/4' id="kbRow2">
                     {/* 9 keys */}
-                    {Array.from({ length: 9}).map((_, idx) => (
-                        <button onClick={(e) => handleKeyboard(e.currentTarget.id, kbKeys[keyboardState].row2[idx])} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10}  id={`kbButton-${idx + 10}`} >
-                            {kbKeys[keyboardState].row2[idx]}
-                        </button>
-                    ))}
+                    {Array.from({ length: 9 }).map((_, idx) => {
+                        const rowKeys = kbKeys[keyboardState]?.row2;
+                        const keyValue = rowKeys?.[idx];
+                        if (keyValue === undefined) return <></>
+                        return (
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10}  id={`kbButton-${idx + 10}`} >
+                                {keyValue}
+                            </button>
+                        )
+                    })}
 
                 </div>
 
                 <div className='h-1/4' id="kbRow3">
                     {/* 9 keys inc. kb state and backspace */}
-                    {Array.from({ length: 9}).map((_, idx) => (
-                        <button onClick={(e) => handleKeyboard(e.currentTarget.id, kbKeys[keyboardState].row3[idx])} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9}  id={`kbButton-${idx + 10 + 9}`}>
-                            {kbKeys[keyboardState].row3[idx]}
-                        </button>
-                    ))}
+                    {Array.from({ length: 9 }).map((_, idx) => {
+                        const rowKeys = kbKeys[keyboardState]?.row3;
+                        const keyValue = rowKeys?.[idx];
+                        if (keyValue === undefined) return <></>
+                        return (
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9}  id={`kbButton-${idx + 10 + 9}`} >
+                                {keyValue}
+                            </button>
+                        )
+                    })}
                 </div>
 
                 <div className='h-1/4' id="kbRow4">
                     {/* 5 keys inc space, search etc. */}
-                    {Array.from({ length: 5}).map((_, idx) => (
-                        <button onClick={(e) => handleKeyboard(e.currentTarget.id, kbKeys[keyboardState].row4[idx])} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9 + 9}  id={`kbButton-${idx + 10 + 9 + 9}`}>
-                            {kbKeys[keyboardState].row4[idx]}
-                        </button>
-                    ))}
+                    {Array.from({ length: 5 }).map((_, idx) => {
+                        const rowKeys = kbKeys[keyboardState]?.row4;
+                        const keyValue = rowKeys?.[idx];
+                        if (keyValue === undefined) return <></>
+                        return (
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9 + 9}  id={`kbButton-${idx + 10 + 9 + 9}`} >
+                                {keyValue}
+                            </button>
+                        )
+                    })}
                 </div>
             </div>
         )
     }
 
-    function handleKeyboard(e: string, kbText: string) {
+    function handleKeyboard(e: string, kbText: string | JSX.Element) {
         const kbButtonId: number = parseInt(e.replace("kbButton-", ""));
         const kbButtonPressed = kbKeysIndex[kbButtonId];
 
