@@ -299,9 +299,6 @@ p {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-#kbContainer {
-    max-height: clamp(30vh, 62vh, 65vh)
-}
 
 #kbButton-19 {
     /* switch kb */
@@ -349,10 +346,4 @@ p {
     background-color: rgb(47, 255, 89);
     color: black;
 }
-#kbInputArea {
-    /* font-size: clamp(0.4rem, 9vw + 1rem, 6rem); */
-    line-height: 1;
-    width: fit-content;
-}
-
 

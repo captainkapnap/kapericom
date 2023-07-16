@@ -40,8 +40,8 @@ const kbKeysIndex: { [key: number]: string } = {
     27: 'backspace',
     28: '123',
     29: 'world',
-    31: 'space',
-    30: 'mic',
+    30: 'space',
+    31: 'mic',
     32: 'search'
 }
 
@@ -181,8 +181,8 @@ const kbKeys: RowKeys = {
 function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
-    const [message, setMessage] = useState<string>('');
-    const [fontSize, setFontSize] = useState<number>(400);
+    const [message, setMessage] = useState<string>('test');
+    const [fontSize, setFontSize] = useState<number>(80);
 
     // ================ HELPERS ================
     function CreateKeys() {
@@ -267,24 +267,39 @@ function ICodeThis() {
         
         if (kbText === 'space') {
             kbText = ' '
+            setMessage(`${message.toString()}${kbText.toString()}`)
+        } else if (kbButtonPressed === 'search') {
+            kbText = '\n'
+            setMessage(`${message.toString()}${kbText}`)
+        } else if (kbButtonPressed === 'backspace') {
+            kbText = message.slice(0,-1)
+            setMessage(kbText)
+        } else if (kbButtonPressed === 'world') {
+            kbText = '🪐'
+            setMessage(`${message.toString()}${kbText}`)
+        } else if (kbButtonPressed === 'mic') {
+            window.alert("You have switched your microphone to ON.")
+        } else {
+            setMessage(`${message.toString()}${kbText.toString()}`)
         }
-        setMessage(`${message.toString()}${kbText.toString()}`)
+        
         
     }
     // ================ LIFECYCLE ================
-    useEffect(() => {
-        setFontSize(message.length > 0 ? Math.max(20, 200 - (message.length + 2) * 5) :  100)
-    }, [message])
+    // useEffect(() => {
+    //     setFontSize(message.length > 0 ? Math.max(20, 100 - (message.length) * 3) :  100)
+    // }, [message])
 
     // ================ RETURN ================
     return (
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end max-h-screen min-h-screen overflow-hidden">
-            <div className='w-full' id="kbWrapper">
-                <div className='text-white flex flex-wrap max-w-full' style={{ fontSize: `${fontSize}px`}} id="kbInputArea">
-                    <p className='break-words hyphens-auto'>{message}</p>
+        <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end max-h-[100dvh] min-h-[100dvh] min-w-[100dvw]">
+            <div className='w-full h-full' id="kbWrapper">
+                <div className='text-white text-6xl border-red-900 border-1 leading-none'  id="kbInputArea">
+                    <p className='break-words break-all hyphens-auto '>{message}</p>
                 </div> 
-                <div className=' bg-indigo-800 rounded-t flex justify-center items-center' id="kbContainer">
+
+                <div className='bg-indigo-800 rounded-t flex justify-center items-center' id="kbContainer">
                     <CreateKeys />
                 </div>
             </div>
