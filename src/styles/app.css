@@ -270,7 +270,7 @@ p {
     --kb-padding-x: clamp(0.45em, 2.8vw, 4em);
     --kb-padding-y: clamp(1vh, 2vh, 2.5vh);
     --kb-margin-x: clamp(0.12em, 0.7vw, 1em);
-    --kb-margin-y: clamp(0.4em, 1.1vh, 1.5em);
+    --kb-margin-y: clamp(0.4em, 0.8vh, 1.5em);
     --kb-fontsize: clamp(2rem, 2vw, 3rem);
     --kb-padding-ict: clamp(0.3em, 0.55em, 0.65em);
     --kb-transform-ict: clamp(-2px, 0.1vh + 20px ,4px);
@@ -348,6 +348,11 @@ p {
     /* return */
     background-color: rgb(47, 255, 89);
     color: black;
+}
+#kbInputArea {
+    /* font-size: clamp(0.4rem, 9vw + 1rem, 6rem); */
+    line-height: 1;
+    width: fit-content;
 }
 
 

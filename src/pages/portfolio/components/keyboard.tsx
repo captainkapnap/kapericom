@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from "react";
+import { useState, MouseEvent, useEffect } from "react";
 import IcT from "~/pages/components/icons";
 
 type RowKeys = {
@@ -181,12 +181,14 @@ const kbKeys: RowKeys = {
 function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
+    const [message, setMessage] = useState<string>('Lorem lksadlk');
+    const [fontSize, setFontSize] = useState<number>(400);
 
     // ================ HELPERS ================
     function CreateKeys() {
 
         return (
-            <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-center items-center shrink-0'>
                 <div className='h-1/4' id="kbRow1">
                     {/* 10 keys */}
                     {Array.from({ length: 10 }).map((_, idx) => {
@@ -194,7 +196,7 @@ function ICodeThis() {
                         const keyValue = rowKeys?.[idx];
                         if (keyValue === undefined) return <></>
                         return (
-                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx}  id={`kbButton-${idx}`} >
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold sm:hover:bg-indigo-500 kbButton' key={idx}  id={`kbButton-${idx}`} >
                                 {keyValue}
                             </button>
                         )
@@ -208,7 +210,7 @@ function ICodeThis() {
                         const keyValue = rowKeys?.[idx];
                         if (keyValue === undefined) return <></>
                         return (
-                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10}  id={`kbButton-${idx + 10}`} >
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold sm:hover:bg-indigo-500 kbButton' key={idx + 10}  id={`kbButton-${idx + 10}`} >
                                 {keyValue}
                             </button>
                         )
@@ -223,7 +225,7 @@ function ICodeThis() {
                         const keyValue = rowKeys?.[idx];
                         if (keyValue === undefined) return <></>
                         return (
-                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9}  id={`kbButton-${idx + 10 + 9}`} >
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold sm:hover:bg-indigo-500 kbButton' key={idx + 10 + 9}  id={`kbButton-${idx + 10 + 9}`} >
                                 {keyValue}
                             </button>
                         )
@@ -237,7 +239,7 @@ function ICodeThis() {
                         const keyValue = rowKeys?.[idx];
                         if (keyValue === undefined) return <></>
                         return (
-                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold hover:bg-indigo-500 kbButton' key={idx + 10 + 9 + 9}  id={`kbButton-${idx + 10 + 9 + 9}`} >
+                            <button onClick={(e) => handleKeyboard(e.currentTarget.id, keyValue)} className='text-white bg-indigo-900 rounded font-semibold sm:hover:bg-indigo-500 kbButton' key={idx + 10 + 9 + 9}  id={`kbButton-${idx + 10 + 9 + 9}`} >
                                 {keyValue}
                             </button>
                         )
@@ -263,16 +265,26 @@ function ICodeThis() {
 
         console.log(kbKeysIndex[kbButtonId], kbText)
         
+        if (kbText === 'space') {
+            kbText = ' '
+        }
+        setMessage(message + kbText)
+        
     }
     // ================ LIFECYCLE ================
-
+    useEffect(() => {
+        setFontSize(message.length > 0 ? Math.max(20, 200 - (message.length + 2) * 5) :  100)
+    }, [message])
 
     // ================ RETURN ================
     return (
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end min-h-screen">
+        <div id="bodyDiv" className="bg-blue-700 flex justify-center items-end max-h-screen min-h-screen overflow-hidden">
             <div className='w-full' id="kbWrapper">
-                <div className='bg-indigo-800 rounded-t flex justify-center items-center' id="kbContainer">
+                <div className='text-white flex flex-wrap max-w-full' style={{ fontSize: `${fontSize}px`}} id="kbInputArea">
+                    <p className='break-words hyphens-auto'>{message}</p>
+                </div> 
+                <div className=' bg-indigo-800 rounded-t flex justify-center items-center' id="kbContainer">
                     <CreateKeys />
                 </div>
             </div>
