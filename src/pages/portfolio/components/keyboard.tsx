@@ -181,7 +181,7 @@ const kbKeys: RowKeys = {
 function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
-    const [message, setMessage] = useState<string>('Lorem lksadlk');
+    const [message, setMessage] = useState<string>('');
     const [fontSize, setFontSize] = useState<number>(400);
 
     // ================ HELPERS ================
