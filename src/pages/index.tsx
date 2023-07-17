@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
       </Head>
       <main className="flex flex-col min-h-screen items-center bg-gradient-to-b from-[#02666d] to-[#220909]">
         <section className='' id="title">

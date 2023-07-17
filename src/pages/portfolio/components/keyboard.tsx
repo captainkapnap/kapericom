@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import IcT from "~/pages/components/icons";
 
 type RowKeys = {
@@ -182,7 +182,7 @@ function ICodeThis() {
     // ================ STATE ================
     const [keyboardState, setKeyboardState] = useState<number>(1);
     const [message, setMessage] = useState<string>('> ');
-    const [fontSize, setFontSize] = useState<number>(80);
+    // const [fontSize, setFontSize] = useState<number>(80);
 
     // ================ HELPERS ================
     function CreateKeys() {

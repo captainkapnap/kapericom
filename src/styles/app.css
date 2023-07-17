@@ -349,12 +349,25 @@ p {
 
 /* Active Wandering */
 
-.awSplit {
-    display: flex;
-    flex-direction: column;
+.awContentSplit {
+    flex-direction: row;
 }
-@media (min-width: 30em) {
-    .awSplit {
-        flex-direction: row;
+.awAboutSplit {
+    flex-direction: row;
+}
+.awAboutMaxWidth {
+    max-width: 50%;
+}
+@media (max-width: 416px) {
+    .awContentSplit {
+        flex-direction: column;
+        align-items: center;
+    }
+    .awAboutSplit {
+        flex-direction: column;
+        align-items: center;
+    }
+    .awAboutMaxWidth {
+        max-width: 85%;
     }
 }
