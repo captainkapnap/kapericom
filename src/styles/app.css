@@ -347,3 +347,14 @@ p {
     color: black;
 }
 
+/* Active Wandering */
+
+.awSplit {
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 30em) {
+    .awSplit {
+        flex-direction: row;
+    }
+}

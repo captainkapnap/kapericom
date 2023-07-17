@@ -13,4 +13,6 @@ export const listOfPages: ListofPages = [
     {type: "Template", fileName: 'testimonials-black-shadowbg.tsx', title: 'Testimonails w/ Shadow Outline', desc: ''},
     {type: "Template", fileName: 'website-sponsorship.tsx', title: 'Website Sponsorship', desc: ''},
     {type: "Component", fileName: 'keyboard.tsx', title: 'Keyboard', desc: ''},
+    {type: "Template", fileName: 'active-wandering.tsx', title: 'Active Wandering', desc: ''},
+
 ]
