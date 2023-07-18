@@ -87,7 +87,7 @@ function ICodeThis() {
             {/* Hero */}
             <section className="" id ="awHero">
                 <div className='relative flex h-[80dvh] w-full'>
-                    <CldImage src={awImagesCld.hero} className='w-full h-full object-cover' gravity="auto" priority width={0} height={0} sizes={cldResponsiveSizing} style={{ width: 'auto', height: 'auto'}} alt='travel fitness yoga mental health' />
+                    <CldImage src={awImagesCld.hero} className='w-full h-full object-cover' priority width={0} height={0} sizes={cldResponsiveSizing} style={{ width: 'auto', height: 'auto'}} alt='travel fitness yoga mental health' />
                 </div>
             </section>
 
