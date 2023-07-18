@@ -1,4 +1,3 @@
-import Image from "next/image";
 import IcT from "~/pages/components/icons";
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
@@ -58,9 +57,9 @@ function ICodeThis() {
     function AWContent() {
 
         return (
-            <div className='flex items-stretch gap-4 awContentSplit my-10 border-4 border-red-500'>
+            <div className='flex awContentSplit my-10'>
                 {awContent.map((content, idx) => (
-                    <div className='awContentWidths h-1/4 shadow-md rounded-lg border-4 border-blue-500' key={idx}>
+                    <div className='bg-slate-100 awContentWidths items-stretch shadow-md rounded-lg' key={idx}>
                         <CldImage src={content.image} alt={content.alt} className='rounded-t-lg'  width={400} height={400} crop="thumb" gravity="auto" loading="lazy" sizes={cldResponsiveSizing} key={idx} /> 
                         <p className='flex justify-center font-bold text-aw_title_dynamic'>{content.title}</p>
                         <p className='flex justify-center items-center px-1.5 text-aw_p_dynamic'>{content.desc}</p>
@@ -87,8 +86,8 @@ function ICodeThis() {
 
             {/* Hero */}
             <section className="" id ="awHero">
-                <div className='relative h-[80dvh] w-full'>
-                    <CldImage src={awImagesCld.hero} className='' priority width={0}  height={0} sizes="100vw" style={{ width: 'auto', height: 'auto'}} alt='travel fitness yoga mental health' />
+                <div className='relative flex h-[80dvh] w-full'>
+                    <CldImage src={awImagesCld.hero} className='w-full h-full object-cover' gravity="auto" priority width={0} height={0} sizes={cldResponsiveSizing} style={{ width: 'auto', height: 'auto'}} alt='travel fitness yoga mental health' />
                 </div>
             </section>
 

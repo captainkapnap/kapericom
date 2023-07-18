@@ -357,6 +357,7 @@ p {
     flex-direction: row;
     margin-left: var(--aw-content-mx);
     margin-right: var(--aw-content-mx);
+    gap: 1rem;
 }
 .awAboutSplit {
     flex-direction: row;
@@ -371,6 +372,7 @@ p {
     .awContentSplit {
         flex-direction: column;
         align-items: center;
+        gap: 2rem;
     }
     .awAboutSplit {
         flex-direction: column;
