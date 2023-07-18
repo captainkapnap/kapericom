@@ -349,14 +349,23 @@ p {
 
 /* Active Wandering */
 
+:root {
+    --aw-content-mx: clamp(0.01rem, 2vw, 3.5rem);
+}
+
 .awContentSplit {
     flex-direction: row;
+    margin-left: var(--aw-content-mx);
+    margin-right: var(--aw-content-mx);
 }
 .awAboutSplit {
     flex-direction: row;
 }
 .awAboutMaxWidth {
     max-width: 50%;
+}
+.awContentWidths {
+    width: 60%;
 }
 @media (max-width: 416px) {
     .awContentSplit {
@@ -369,5 +378,8 @@ p {
     }
     .awAboutMaxWidth {
         max-width: 85%;
+    }
+    .awContentWidths {
+        width: 90%;
     }
 }

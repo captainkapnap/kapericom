@@ -1,10 +1,17 @@
 import Image from "next/image";
 import IcT from "~/pages/components/icons";
 import Link from "next/link";
+import { CldImage } from "next-cloudinary";
 
 type AWContentType = { title: string, image: string, alt: string, link: string, desc: string}[]
 
 const nameOfBlog = "Active Wandering"
+
+const cldResponsiveSizing = `sizes="(min-width: 480px ) 50vw,
+                      (min-width: 728px) 33vw,
+                      (min-width: 976px) 25vw,
+                      100vw"`
+
 
 const awImages = {
     sideProfile: '/images/AW/awSideProfile.jpg',
@@ -17,16 +24,27 @@ const awImages = {
     contentTravel: '/images/AW/awContent1.jpg',
 }
 
+const awImagesCld = {
+    sideProfile: 'ActiveWandering/sideProfile',
+    hero: 'ActiveWandering/awHero',
+    followScript: 'ActiveWandering/dmz0rjilayzelnxrphg4',
+    victoriaSignature: 'ActiveWandering/jnfgxzofeorwf3ryhfu9',
+    contentFitness: 'ActiveWandering/mub0yheazcvnjuhhr8yu',
+    contentYoga: 'ActiveWandering/w9rnda1lml6ihujzf5jl',
+    contentMentalHealth: 'ActiveWandering/pyq8tl9ztzgjcjbvht2r',
+    contentTravel: 'ActiveWandering/ms47djfu5h1apli9bxvc',
+}
+
 const awContent: AWContentType = [
-    {title: 'Fitness', image: awImages.contentFitness, alt: '', link: '', desc: 'Elevate your workouts to benefit your health'},
-    {title: 'Yoga', image: awImages.contentYoga, alt: '', link: '', desc: 'Boost mind and body synergies with Yoga'},
-    {title: 'Travel', image: awImages.contentTravel, alt: '', link: '', desc: 'Ignite your wanderlust with captivating travel stories'},
-    {title: 'Mental Health', image: awImages.contentMentalHealth, alt: '', link: '', desc: 'Harness serenity and mental wellbeing'},
+    {title: 'Fitness', image: awImagesCld.contentFitness, alt: '', link: '', desc: 'Elevate your workouts to benefit your health'},
+    {title: 'Yoga', image: awImagesCld.contentYoga, alt: '', link: '', desc: 'Boost mind and body synergies with Yoga'},
+    {title: 'Travel', image: awImagesCld.contentTravel, alt: '', link: '', desc: 'Ignite your wanderlust with captivating travel stories'},
+    {title: 'Mental Health', image: awImagesCld.contentMentalHealth, alt: '', link: '', desc: 'Harness serenity and mental wellbeing'},
 ]
 
 
 const awAbout = {
-    title: `About ${nameOfBlog}`,
+    title: `About Me!`,
     welcomeText: "Welcome to my niche-juggling extravaganza! As a one-person show, I tackle multiple niches with humor and curiosity, navigating the adventurous world with gusto!”",
     explanationText: "Discover the art of healthy living while traveling the world at Active Wandering. From travel tips to local cuisines, and wellness insights, this blog inspires you to live well while exploring new destinations.",
 
@@ -40,12 +58,12 @@ function ICodeThis() {
     function AWContent() {
 
         return (
-            <div className='flex items-strech gap-4 awContentSplit mt-10 mb-10'>
+            <div className='flex items-stretch gap-4 awContentSplit my-10 border-4 border-red-500'>
                 {awContent.map((content, idx) => (
-                    <div className='w-3/5 h-1/4 shadow-md rounded-lg' key={idx}>
-                        <Image src={content.image} alt={content.alt} className='rounded-t-lg'  width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto'}} key={idx} /> 
-                        <p className='flex justify-center font-bold text-lg'>{content.title}</p>
-                        <p className='flex justify-center items-center px-1.5'>{content.desc}</p>
+                    <div className='awContentWidths h-1/4 shadow-md rounded-lg border-4 border-blue-500' key={idx}>
+                        <CldImage src={content.image} alt={content.alt} className='rounded-t-lg'  width={400} height={400} crop="thumb" gravity="auto" loading="lazy" sizes={cldResponsiveSizing} key={idx} /> 
+                        <p className='flex justify-center font-bold text-aw_title_dynamic'>{content.title}</p>
+                        <p className='flex justify-center items-center px-1.5 text-aw_p_dynamic'>{content.desc}</p>
                     </div>
                 ))}
             </div>
@@ -70,7 +88,7 @@ function ICodeThis() {
             {/* Hero */}
             <section className="" id ="awHero">
                 <div className='relative h-[80dvh] w-full'>
-                    <Image src={awImages.hero} className='' priority width={0} height={0} sizes="100vw" style={{ width: 'auto', height: '80dvh'}} alt='travel fitness yoga mental health' />
+                    <CldImage src={awImagesCld.hero} className='' priority width={0}  height={0} sizes="100vw" style={{ width: 'auto', height: 'auto'}} alt='travel fitness yoga mental health' />
                 </div>
             </section>
 
@@ -86,15 +104,15 @@ function ICodeThis() {
             {/* ABOUT PAGE */}
             <section className="bg-slate-300 flex justify-center items-center pb-8 awAboutSplit" id ="awAbout">
                 <div className='text-slate-900 flex flex-col items-center awAboutMaxWidth' id="awAboutText">
-                    <h1 className='font-bold my-[1em] text-2xl'>{awAbout.title}</h1>
-                    <p className='px-[1.5em]'>{awAbout.welcomeText}</p>
-                    <p className='px-[1.5em]'>{awAbout.explanationText}</p>
+                    <h1 className='font-bold my-[1em] text-2xl text-aw_h1_dynamic'>{awAbout.title}</h1>
+                    <p className='px-[1.5em] text-aw_p_dynamic'>{awAbout.welcomeText}</p>
+                    <p className='px-[1.5em] text-aw_p_dynamic'>{awAbout.explanationText}</p>
                     <div className='w-64'>
-                        <Image src={awImages.victoriaSignature} width={0} height={0} alt="victoria mojabi signature" sizes="100vw" style={{ width: '100%', height: 'auto'}} />
+                        <CldImage src={awImagesCld.victoriaSignature} loading="lazy" width={0} height={0} alt="victoria mojabi signature" sizes={cldResponsiveSizing} style={{ width: '100%', height: 'auto'}} />
                     </div>
                 </div>
                 <div className='awAboutMaxWidth flex items-center mx-4' id="awAboutImage">
-                    <Image src={awImages.sideProfile} className='rounded-full shadow-xl border-slate-400 border-2 hover:scale-110 hover:transition-transform hover:duration-200' width={300} height={300}  alt="profile picture side sideways victoria mojabi" />
+                    <CldImage src={awImagesCld.sideProfile} loading="lazy" className='rounded-full shadow-xl border-slate-400 border-2 hover:scale-110 hover:transition-transform hover:duration-200' width={300} height={300} sizes={cldResponsiveSizing} alt="profile picture side sideways victoria mojabi" />
                 </div>
             </section>
 
@@ -105,7 +123,7 @@ function ICodeThis() {
                     {nameOfBlog.toUpperCase()}
                 </div>
                 <div className='' id="awFooterFollowImg">
-                    <Image src={awImages.followScript} width={80} height={40} alt="follow me on social media" />
+                    <CldImage src={awImagesCld.followScript} loading="lazy" width={80} height={40} sizes={cldResponsiveSizing} alt="follow me on social media" />
                 </div>
                 <div className='text-slate-100 flex' id="awFooterSocials">
                     <div className='hover:scale-150 hover:transition-transform hover:duration-200 hover:text-red-500'>
