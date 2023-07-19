@@ -420,7 +420,7 @@ p {
 
 .fnbMenuBorder {
     left: 0;
-    bottom: 5rem;
+    /* bottom: 7rem; */
     width: 10.9rem;
     height: 2.4rem;
     position: absolute;

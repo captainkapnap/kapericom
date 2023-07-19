@@ -20,6 +20,12 @@ function ICodeThis() {
     const refMenu = useRef<HTMLDivElement | null>(null);
     const refMenuBorder = useRef<HTMLDivElement | null>(null);
 
+    const fnbMenu = refMenu.current?.getBoundingClientRect();
+    const fnbMenuBorder = refMenuBorder.current?.getBoundingClientRect();
+    if (fnbMenu && refMenuBorder.current) {
+        refMenuBorder.current.style.bottom = `${fnbMenu.height}px`;        
+    }
+
     // ================ HELPERS ================
     function FNBDisplayIcons() {
 
@@ -38,13 +44,13 @@ function ICodeThis() {
     function handleFNBButton(buttonID: number, e: MouseEvent<HTMLButtonElement>) {
         setActiveButton(buttonID)
 
-        const fnbMenu = refMenu.current?.getBoundingClientRect();
-        const fnbMenuBorder = refMenuBorder.current?.getBoundingClientRect();        
         const fnbActiveBtn = buttonRefs.current[buttonID]?.current?.getBoundingClientRect();
 
         if (fnbActiveBtn && fnbMenu && fnbMenuBorder && refMenuBorder.current) {
             const fnbLeft = `${Math.floor(fnbActiveBtn.left - fnbMenu.left - (fnbMenuBorder.width - fnbActiveBtn.width) / 2)}px`;
             refMenuBorder.current.style.transform = `translateX(${fnbLeft})`;
+            console.log(fnbMenu.height)
+            
         }
     }
 
