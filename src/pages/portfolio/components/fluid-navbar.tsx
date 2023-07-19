@@ -23,7 +23,7 @@ function ICodeThis() {
     const fnbMenu = refMenu.current?.getBoundingClientRect();
     const fnbMenuBorder = refMenuBorder.current?.getBoundingClientRect();
     if (fnbMenu && refMenuBorder.current) {
-        refMenuBorder.current.style.bottom = `${fnbMenu.height}px`;        
+        refMenuBorder.current.style.bottom = `${fnbMenu.height - 6}px`;        
     }
 
     // ================ HELPERS ================
@@ -69,7 +69,7 @@ function ICodeThis() {
     return (
       <>
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="bg-sky-200 flex items-end min-h-screen w-[100dvw] overflow-hidden">
+        <div id="bodyDiv" className="bg-sky-200 flex items-end min-h-[100svh] w-[100dvw] overflow-hidden">
             <div className='bg-slate-900 w-full' id="fnbContainer" ref={refMenu}>
                 <FNBDisplayIcons />
             </div>
