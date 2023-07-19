@@ -385,3 +385,52 @@ p {
         width: 90%;
     }
 }
+
+/* Fluid Navbar */
+
+.fnbItem { 
+    flex-grow: 1;
+    position: relative;
+    border-radius: 50%;
+    all: unset;
+
+}
+
+.fnbItem::before {
+    content: '';
+    z-index: -1;
+    width: 4.2em;
+    height: 4.2em;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    transition: background-color 0.7s, transform 0.7s;
+    
+}
+
+.fnbActive {
+    color: red;
+    transform: translate3d(0, -0.8em, 0);
+}
+
+.fnbItem.fnbActive::before {
+    transform: scale(1);
+    background-color: var(--fnb-bgColorItem);
+}
+
+.fnbMenuBorder {
+    left: 0;
+    bottom: 5rem;
+    width: 10.9rem;
+    height: 2.4rem;
+    position: absolute;
+    clip-path: url(#menu);
+    will-change: transform;
+    /* background-color: var(--fnb-bgColorItem); */
+    transition: transform 0.7s;
+}
+
+.fnbSVGContainer {
+    width: 0;
+    height: 0;
+}

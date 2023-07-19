@@ -59,7 +59,7 @@ function ICodeThis() {
         return (
             <div className='flex awContentSplit my-10'>
                 {awContent.map((content, idx) => (
-                    <div className='bg-slate-100 awContentWidths items-stretch shadow-md rounded-lg' key={idx}>
+                    <div className='bg-slate-100 awContentWidths hover:scale-110 hover:duration-200 hover:transition-transform items-stretch shadow-md rounded-lg' key={idx}>
                         <CldImage src={content.image} alt={content.alt} className='rounded-t-lg'  width={400} height={400} crop="thumb" gravity="auto" loading="lazy" sizes={cldResponsiveSizing} key={idx} /> 
                         <p className='flex justify-center font-bold text-aw_title_dynamic'>{content.title}</p>
                         <p className='flex justify-center items-center px-1.5 text-aw_p_dynamic'>{content.desc}</p>

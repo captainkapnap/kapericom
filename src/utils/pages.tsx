@@ -14,5 +14,6 @@ export const listOfPages: ListofPages = [
     {type: "Template", fileName: 'website-sponsorship.tsx', title: 'Website Sponsorship', desc: ''},
     {type: "Component", fileName: 'keyboard.tsx', title: 'Keyboard', desc: ''},
     {type: "Template", fileName: 'active-wandering.tsx', title: 'Active Wandering', desc: ''},
+    {type: "Component", fileName: 'fluid-navbar.tsx', title: 'Fluid Navbar', desc: ''},
 
 ]
