@@ -388,35 +388,12 @@ p {
 
 /* Fluid Navbar */
 
-.fnbItem { 
-    flex-grow: 1;
-    position: relative;
-    border-radius: 50%;
-    all: unset;
-
-}
-
-.fnbItem::before {
-    content: '';
-    z-index: -1;
-    width: 4.2em;
-    height: 4.2em;
-    border-radius: 50%;
-    position: absolute;
-    transform: scale(0);
-    transition: background-color 0.7s, transform 0.7s;
-    
-}
-
-.fnbActive {
-    color: red;
-    transform: translate3d(0, -0.8em, 0);
-}
-
-.fnbItem.fnbActive::before {
-    transform: scale(1);
+.bodyDivFNB {
     background-color: var(--fnb-bgColorItem);
+    /* transition: background-color 0.7s */
 }
+
+
 
 .fnbMenuBorder {
     left: 0;
@@ -426,11 +403,68 @@ p {
     position: absolute;
     clip-path: url(#menu);
     will-change: transform;
-    /* background-color: var(--fnb-bgColorItem); */
     transition: transform 0.7s;
 }
 
 .fnbSVGContainer {
     width: 0;
     height: 0;
+}
+
+.fnbIcon {
+    width: 2.6rem;
+    height: 2.6rem;
+    stroke: white;
+    fill: transparent;
+    stroke-width: 1pt;
+    stroke-miterlimit: 10;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 400;
+}
+.fnbItem { 
+    display: flex;
+    flex-grow: 1;
+    z-index: 100;
+    position: relative;
+    border-radius: 50%;
+    all: unset;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    transition: transform 0.7s;
+}
+
+.fnbItem::before {
+    content: '';
+    z-index: -1;
+    width: 4.2em;
+    height: 4.2em;
+    left: -0.7rem;
+    bottom: -1rem;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    transition: background-color 0.7s, transform 0.4s;
+}
+
+.fnbItem.fnbActive {
+    /* transform: translate3d(0, -0.8rem, 0); */
+    transform: translate3d(0, 0 0);
+}
+
+.fnbItem.fnbActive::before {
+    transform: scale(1);
+    background-color: var(--fnb-bgColorItem);
+}
+.fnbItem.fnbActive .fnbIcon {
+    animation: strok 1.5s reverse;
+}
+
+
+@keyframes strok {
+    100% {
+        stroke-dashoffset: 400;
+    }
 }
