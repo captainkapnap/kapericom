@@ -1,4 +1,3 @@
-import { reverse } from "dns"
 
 type ListofPages = { type: "Component" | "Template", fileName: string, title: string, desc: string}[]
 

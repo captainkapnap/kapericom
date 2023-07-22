@@ -1,30 +1,33 @@
 import { DndContext, useDroppable, useDraggable } from "@dnd-kit/core";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 
 
 function ICodeThis() {
     // ================ STATE ================
+    const containers = ['A', 'B', 'C'];
     const [isDropped, setIsDropped] = useState<boolean>(false);
+    const [parent, setParent] = useState(null);
     const draggableMarkup = (
         <Draggable>Drag Me</Draggable>
     )
 
     // ================ HELPERS ================
-    function Droppable(props: any) {
+    function Droppable({ children }: {children: ReactNode}) {
         const {isOver, setNodeRef} = useDroppable({ id: 'droppable' });
         const style = {
             color: isOver ? 'green' : undefined,
+            backgroundColor: isOver ? 'red' : undefined,
         }
 
         return (
             <div ref={setNodeRef} style={style}>
-                {props.children}
+                {children}
             </div>
         )
     }
 
-    function Draggable(props: any) {
+    function Draggable({ children }: { children: ReactNode}) {
         const {attributes, listeners, setNodeRef, transform} = useDraggable({ id: 'draggable '});
         const style = transform ? {
             transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` 
@@ -32,7 +35,7 @@ function ICodeThis() {
                    
         return (
             <button className="bg-red-500 w-40 h-20 text-white" ref={setNodeRef} style={style} {...listeners} {...attributes}>
-                {props.children}
+                {children}
             </button>
         )
     }
@@ -52,7 +55,7 @@ function ICodeThis() {
         <div id="bodyDiv" className="bg-zinc-100 min-h-[100svh]">
            <DndContext onDragEnd={handleDragEnd}>
             {!isDropped ? draggableMarkup : null}
-              <Droppable props="ddd">
+              <Droppable>
                 {isDropped ? draggableMarkup : 'Drop Here'}
               </Droppable>
            </DndContext>
