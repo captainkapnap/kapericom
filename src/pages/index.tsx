@@ -1,5 +1,6 @@
 import Head from "next/head";
 import KaperiPortfolio from "./components/portfolio";
+import FluidNavBar from "./portfolio/components/fluid-navbar";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         </section>
         <section className='' id="portfolio">
           <div className='flex justify-center'>
-            <KaperiPortfolio />
+              <KaperiPortfolio />
           </div>
         </section>
       </main>

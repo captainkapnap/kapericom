@@ -12,7 +12,7 @@ const fnbItems = [
     {icon: <IcT icons="pinterest" classNameCustom="w-10 h-10 fnbIcon" />, id: 4, color: '#b0bec5'},
 ]
 
-function ICodeThis() {
+function FluidNavBar() {
     // ================ STATE ================
     const [activeButton, setActiveButton] = useState<number>(0);
     const buttonRefs = useRef<RefObject<HTMLButtonElement>[]>([]);
@@ -76,7 +76,7 @@ function ICodeThis() {
     return (
       <>
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="flex items-end min-h-[100svh] overflow-hidden bodyDivFNB ">
+        <div id="bodyDiv" className="flex items-end min-h-[100svh] w-full overflow-hidden bodyDivFNB ">
             <div className='w-full' id="fnbContainer"  ref={refMenu} >
                 <div className='bg-slate-900 w-full relative' id="fnbMenu">
                     {/* fnbMenu div is used to ensure overflow-hidden works on fnbMenuBorder */}
@@ -104,7 +104,7 @@ function ICodeThis() {
     )
 }
 
-export default ICodeThis;
+export default FluidNavBar;
 
 
 

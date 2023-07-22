@@ -126,13 +126,13 @@ function ICodeThis() {
                 </div>
                 <div className='text-slate-100 flex' id="awFooterSocials">
                     <div className='hover:scale-150 hover:transition-transform hover:duration-200 hover:text-red-500'>
-                        <IcT icons="twitter" classNameCustom="mx-4"/>
+                        <IcT icons="twitter" classNameCustom="mx-4 awSVGAnimation awSVG"/>
                     </div>
                     <div className='hover:scale-150 hover:transition-transform hover:duration-200 hover:text-red-500'>
-                        <IcT icons="facebook" classNameCustom="mx-4"/>
+                        <IcT icons="facebook" classNameCustom="mx-4 awSVGAnimation awSVG"/>
                     </div>
                     <div className='hover:scale-150 hover:transition-transform hover:duration-200 hover:text-red-500'>
-                        <IcT icons="pinterest" classNameCustom="mx-4"/>
+                        <IcT icons="pinterest" classNameCustom="mx-4 awSVGAnimation awSVG"/>
                     </div>
                 </div>
                 <div className='text-slate-500 flex text-sm' id="awFooterTCs">
