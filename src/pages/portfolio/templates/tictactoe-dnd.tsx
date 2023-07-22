@@ -1,5 +1,7 @@
 import { DndContext, useDroppable, useDraggable } from "@dnd-kit/core";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
+import type { ReactNode } from "react";
+import type { DragEndEvent } from "@dnd-kit/core/dist/types";
 
 
 
@@ -34,13 +36,13 @@ function ICodeThis() {
         } : undefined;
                    
         return (
-            <button className="bg-red-500 w-40 h-20 text-white" ref={setNodeRef} style={style} {...listeners} {...attributes}>
+            <button className="bg-red-500 border-2 border-black rounded-xl w-40 h-20 text-white" ref={setNodeRef} style={style} {...listeners} {...attributes}>
                 {children}
             </button>
         )
     }
 
-    function handleDragEnd(event: any) {
+    function handleDragEnd(event: DragEndEvent) {
         if (event.over && event.over.id === 'droppable') {
             setIsDropped(true);
         }
