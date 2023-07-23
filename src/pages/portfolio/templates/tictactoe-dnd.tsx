@@ -107,7 +107,7 @@ function ICodeThis() {
         } : undefined;
                    
         return (
-            <button className="w-40 h-20 text-black text-4xl font-bold" ref={setNodeRef} style={style} {...listeners} {...attributes}>
+            <button className="w-40 h-20 text-black text-[4rem] font-bold" ref={setNodeRef} style={style} {...listeners} {...attributes}>
                 {props.children}
             </button>
         )
