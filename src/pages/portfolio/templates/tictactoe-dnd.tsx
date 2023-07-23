@@ -1,5 +1,5 @@
 import { DndContext, useDroppable, useDraggable, TouchSensor, MouseSensor, KeyboardSensor, useSensor, useSensors } from "@dnd-kit/core";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import type { ReactNode, CSSProperties } from "react";
 import type { DragEndEvent, DragMoveEvent } from "@dnd-kit/core/dist/types";
 import type { UseDraggableArguments, UseDroppableArguments } from "@dnd-kit/core/dist/hooks";
@@ -27,6 +27,7 @@ function ICodeThis() {
         1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: ''
     }
     const containers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const DndID = useId();
     const [isXTurn, setIsXTurn] = useState<boolean>(false);
     const [isMoveValid, setIsMoveValid] = useState<boolean | null>(null);
     const [eachSquareState, setEachSquareState] = useState<EachSquareState>(defaultEachSquareState);
@@ -84,7 +85,7 @@ function ICodeThis() {
         } : undefined;
                    
         return (
-            <button className="w-40 h-20 text-black text-[4rem] font-bold" ref={setNodeRef} style={style} {...listeners} {...attributes}>
+            <button className=" text-black text-[3rem] font-bold" ref={setNodeRef} style={style} {...listeners} {...attributes}>
                 {props.children}
             </button>
         )
@@ -167,16 +168,20 @@ function ICodeThis() {
     return (
       <div id="toggleDarkDiv" className="dark">
         <div id="bodyDiv" className="bg-zinc-900 h-[100svh] overflow-hidden">
-            <DndContext onDragEnd={handleDragEnd} onDragMove={handleDragMove} sensors={sensors} >
+            <DndContext onDragEnd={handleDragEnd} onDragMove={handleDragMove} sensors={sensors} id={DndID} >
 
-            <div className='topPlayer h-1/5 bg-yellow-50'>
-                {!isXTurn ? oActive : null}
+            <div className='h-1/5 flex justify-center items-center'>
+                <div className='w-[90%] h-[70%] bg-yellow-50 border-b-8 border-r-8 border-red-900 rounded-2xl flex justify-center'>
+                    {!isXTurn ? oActive : null}
+                </div>
             </div>
 
             <SetupGameBoard />
 
-            <div className='bottomPlayer h-1/5 bg-yellow-50'>
-                {isXTurn ? xActive : null}
+            <div className='h-1/5 flex justify-center items-center'>
+                <div className='w-[90%] h-[70%] bg-yellow-50 border-b-8 border-r-8 border-red-900 rounded-2xl flex justify-center'>
+                    {isXTurn ? xActive : null}
+                </div>
             </div>
 
             </DndContext>
