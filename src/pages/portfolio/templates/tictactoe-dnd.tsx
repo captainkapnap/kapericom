@@ -153,7 +153,7 @@ function ICodeThis() {
                     <div className='h-4/5 w-full p-4'>
                         <h2 className='text-center font-bold'>Do you want to play again?</h2>
                         <div className='flex justify-center items-center h-[90%]'>
-                            <button onClick={handleYes} className='w-[40%] h-[90%] bg-yellow-50 rounded-2xl border-2 border-red-900 text-4xl hover:bg-yellow-200 active:bg-yellow-200 mr-8'>
+                            <button onClick={handleYes} className='w-[40%] h-[90%] bg-yellow-50 rounded-2xl border-2 border-red-900 text-4xl hover:bg-yellow-200 active:bg-yellow-200 mr-4'>
                                 Yes!
                             </button>
                             <button onClick={handleNo} className='w-[40%] h-[90%] bg-yellow-50 rounded-2xl border-2 border-red-900 text-4xl hover:bg-yellow-200 active:bg-yellow-200'>
