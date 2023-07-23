@@ -90,9 +90,6 @@ function ICodeThis() {
         )
     }
 
-    function handleDragCancel() {
-
-    }
     function handleDragMove(e: DragMoveEvent) {
         const hoverOverSquare: number | undefined = typeof e.over?.id === 'number' ? e.over.id : undefined;
         if (hoverOverSquare !== undefined && eachSquareState[hoverOverSquare] === '') {
@@ -170,7 +167,7 @@ function ICodeThis() {
     return (
       <div id="toggleDarkDiv" className="dark">
         <div id="bodyDiv" className="bg-zinc-900 h-[100svh] overflow-hidden">
-            <DndContext onDragEnd={handleDragEnd} onDragMove={handleDragMove} sensors={sensors} onDragCancel={handleDragCancel} >
+            <DndContext onDragEnd={handleDragEnd} onDragMove={handleDragMove} sensors={sensors} >
 
             <div className='topPlayer h-1/5 bg-yellow-50'>
                 {!isXTurn ? oActive : null}
