@@ -1,37 +1,13 @@
 import { DndContext, useDroppable, useDraggable, TouchSensor, MouseSensor, KeyboardSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { useState, useEffect } from "react";
 import type { ReactNode, CSSProperties } from "react";
-import type { DragEndEvent } from "@dnd-kit/core/dist/types";
+import type { DragEndEvent, DragMoveEvent } from "@dnd-kit/core/dist/types";
 import type { UseDraggableArguments, UseDroppableArguments } from "@dnd-kit/core/dist/hooks";
 
 
 type DroppableProps = UseDroppableArguments & { children?: ReactNode }
 type DraggableProps = UseDraggableArguments & { children?: ReactNode }
 type EachSquareState = { [key: number]: string}
-
-
-// const defaultAnnouncements = {
-//     onDragStart(event: DragStartEvent) {
-//       return `Picked up draggable item ${event.active.id}.`;
-//     },
-//     onDragOver(event: DragOverEvent) {
-//       if (event.over?.id) {
-//         return `Draggable item ${id} was moved over droppable area ${event.over.id}.`;
-//       }
-  
-//       return `Draggable item ${id} is no longer over a droppable area.`;
-//     },
-//     onDragEnd(id, overId) {
-//       if (overId) {
-//         return `Draggable item was dropped over droppable area ${overId}`;
-//       }
-  
-//       return `Draggable item ${id} was dropped.`;
-//     },
-//     onDragCancel(id) {
-//       return `Dragging was cancelled. Draggable item ${id} was dropped.`;
-//     },
-//   }
 
 
 const WINNING_COMBINATIONS: string[][] = [
@@ -52,6 +28,7 @@ function ICodeThis() {
     }
     const containers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const [isXTurn, setIsXTurn] = useState<boolean>(false);
+    const [isMoveValid, setIsMoveValid] = useState<boolean | null>(null);
     const [eachSquareState, setEachSquareState] = useState<EachSquareState>(defaultEachSquareState);
     const oActive = (
         <Draggable id="o">O</Draggable>
@@ -59,12 +36,7 @@ function ICodeThis() {
     const xActive = ( 
         <Draggable id="x">X</Draggable>
     )
-    // const touchSensor = useSensor(TouchSensor, {
-    //     activationConstraint: {
-    //         delay: 250,
-    //         tolerance: 5,
-    //     }
-    // }
+
     const mouseSensor = useSensor(MouseSensor);
     const touchSensor = useSensor(TouchSensor);
     const keyboardSensor = useSensor(KeyboardSensor);
@@ -77,17 +49,22 @@ function ICodeThis() {
 
 
     // ================ DND Kit events ================
-    // const onDragStart = (event: DragStartEvent) => { defaultAnnouncements.onDragStart("draggable")
-    // }
-
     function Droppable(props: DroppableProps) {
         const {isOver, setNodeRef} = useDroppable({ id: props.id, data: { accepts: [ 'open' ] } });
-        const gameBoardStyle = {
-            bgColor: '#EAEDED'
+        let backgroundColor;
+
+        if (isOver && typeof props.id === 'number' && !eachSquareState[props.id]) {
+            backgroundColor = 'green'
+        }  else if (!isMoveValid && isOver) {
+            backgroundColor = 'red'
+        } else {
+            backgroundColor = '#EAEDED'
         }
-        
+
         const style: CSSProperties = {
-            backgroundColor: isOver && typeof props.id === 'number' && !eachSquareState[props.id] ? 'green' : gameBoardStyle.bgColor,
+            // backgroundColor: isOver && typeof props.id === 'number' && !eachSquareState[props.id] ? 'green' : gameBoardStyle.bgColor,
+            backgroundColor: backgroundColor,
+            // backgroundColor: isMoveValid ? 'green' : 'red',
             fontSize: '4rem',
             textAlign: 'center',
             fontWeight: 'bold',
@@ -113,9 +90,20 @@ function ICodeThis() {
         )
     }
 
+    function handleDragCancel() {
+
+    }
+    function handleDragMove(e: DragMoveEvent) {
+        const hoverOverSquare: number | undefined = typeof e.over?.id === 'number' ? e.over.id : undefined;
+        if (hoverOverSquare !== undefined && eachSquareState[hoverOverSquare] === '') {
+            setIsMoveValid(true);
+        } else {
+            setIsMoveValid(false);
+        }
+    }
+
     function handleDragEnd(event: DragEndEvent) {
-        console.log(event)
-        setIsXTurn(!isXTurn);
+        
         const targetSquare: number | undefined = typeof event.over?.id === 'number' ? event.over.id : undefined;
 
         // Dont think squareAccepts really matters for this use case.. would be nice if 
@@ -133,6 +121,7 @@ function ICodeThis() {
                 ...prevSquareStates,
                 [targetSquare]: (event.active.id as string).toUpperCase(),
             }))
+            setIsXTurn(!isXTurn);
         }
         
     }
@@ -181,7 +170,7 @@ function ICodeThis() {
     return (
       <div id="toggleDarkDiv" className="dark">
         <div id="bodyDiv" className="bg-zinc-900 h-[100svh] overflow-hidden">
-            <DndContext onDragEnd={handleDragEnd} sensors={sensors} >
+            <DndContext onDragEnd={handleDragEnd} onDragMove={handleDragMove} sensors={sensors} onDragCancel={handleDragCancel} >
 
             <div className='topPlayer h-1/5 bg-yellow-50'>
                 {!isXTurn ? oActive : null}
