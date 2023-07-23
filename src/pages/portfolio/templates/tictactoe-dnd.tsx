@@ -27,6 +27,8 @@ function ICodeThis() {
         1: '', 2: '', 3: '', 4: '', 5: '', 6: '', 7: '', 8: '', 9: ''
     }
     const containers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [didXWin, setDidXWin] = useState<boolean | null>(null);
+    // this is for some random hydration error in Dndkit... worked so far
     const DndID = useId();
     const [isXTurn, setIsXTurn] = useState<boolean>(false);
     const [isMoveValid, setIsMoveValid] = useState<boolean | null>(null);
@@ -139,6 +141,41 @@ function ICodeThis() {
         )
 
     }
+
+    function GameIsFinished() {
+
+        return (
+            <div className='bg-zinc-600 h-3/5 flex justify-center items-center rounded-3xl mx-4'>
+                <div className='flex flex-col justify-center items-center w-[90%] h-[90%] bg-slate-400 rounded-3xl border-2 border-yellow-50'>
+                    <div className='h-1/5 w-full flex justify-center items-center'>
+                        {didXWin ? <h1 className='font-bold'>X won!</h1> : <h1 className='font-bold text-2xl text-red-900'>O is the winner!</h1>}
+                    </div>
+                    <div className='h-4/5 w-full p-4'>
+                        <h2 className='text-center font-bold'>Do you want to play again?</h2>
+                        <div className='flex justify-center items-center h-[90%]'>
+                            <button onClick={handleYes} className='w-[40%] h-[90%] bg-yellow-50 rounded-2xl border-2 border-red-900 text-4xl hover:bg-yellow-200 active:bg-yellow-200 mr-8'>
+                                Yes!
+                            </button>
+                            <button onClick={handleNo} className='w-[40%] h-[90%] bg-yellow-50 rounded-2xl border-2 border-red-900 text-4xl hover:bg-yellow-200 active:bg-yellow-200'>
+                                Nope!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    function handleNo() {
+        alert("Too bad!  Starting over again")
+        setDidXWin(null)
+        setEachSquareState(defaultEachSquareState)
+    }
+    function handleYes() {
+        setDidXWin(null)
+        setEachSquareState(defaultEachSquareState)
+    }
+
     // ================ HELPERS ================
     function isWinner(board: EachSquareState, player: string, combination: string[]): boolean {
         return combination.every((square) => board[parseInt(square)] === player);
@@ -154,8 +191,9 @@ function ICodeThis() {
 
         if (isXWinner) {
             alert("X Wins!");
+            setDidXWin(true);
         } else if (isOWinner) {
-            alert("O Wins!");
+            setDidXWin(true);
         } else {
             
         }
@@ -178,7 +216,7 @@ function ICodeThis() {
                 </div>
             </div>
 
-            <SetupGameBoard />
+            {didXWin === null ? <SetupGameBoard /> : <GameIsFinished />}
 
             <div className='h-1/5 flex justify-center items-center'>
                 <div className='w-[90%] h-[70%] bg-yellow-50 border-b-8 border-r-8 border-red-900 rounded-2xl flex justify-center'>
