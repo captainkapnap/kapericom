@@ -127,12 +127,14 @@ function ICodeThis() {
     function SetupGameBoard() {
 
         return (
-            <div className='gameBoard bg-zinc-600 h-3/5 grid gap-1 grid-cols-3 grid-rows-3'>
-                {containers.map((id) => (
-                    <Droppable id={id} key={id}>
-                        {eachSquareState[id]}
-                    </Droppable>
-                ))}
+            <div className='bg-zinc-600 h-3/5 flex justify-center items-center rounded-3xl mx-4'>
+                <div className='grid gap-1 grid-cols-3 grid-rows-3 h-[90%] w-[90%]'>
+                    {containers.map((id) => (
+                        <Droppable id={id} key={id}>
+                            {eachSquareState[id]}
+                        </Droppable>
+                    ))}
+                </div>
             </div>
         )
 
