@@ -1,3 +1,5 @@
+  const path = require('path')
+  
   module.exports = {
       images: {
           remotePatterns: [
@@ -20,5 +22,8 @@
                   pathname: '**',
               },
           ],
+      },
+      sassOptions: {
+        includePaths: [path.join(__dirname,'src','styles','scss')],
       },
   }
