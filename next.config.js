@@ -1,5 +1,5 @@
-  const path = require('path')
-  
+const path = require('path')
+
   module.exports = {
       images: {
           remotePatterns: [
@@ -23,7 +23,8 @@
               },
           ],
       },
-      sassOptions: {
-        includePaths: [path.join(__dirname,'src','styles','scss')],
-      },
-  }
+     
+    sassOptions: {
+        includePaths: [path.join(__dirname,'src', 'styles', 'scss')],
+    },
+}

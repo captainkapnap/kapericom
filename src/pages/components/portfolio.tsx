@@ -12,6 +12,10 @@ function KaperiPortfolio() {
 
     // ================ RETURN ================
     return (
+        <>
+            <div className="fs-1000">
+                TEST THIS thing out
+            </div>
         <div className='text-slate-300 flex flex-wrap w-[90%] justify-center items-center'>
             {listOfPages.map((pageExample, index) => (
                 <div className={`mb-4 relative bg-purple-700 hover:bg-cyan-600 rounded-xl text-center m-3 h-20 w-[25%] max-w-[10rem] text-clamp border-black border shadow-lg flex basis-full justify-center items-center`} key={index}>
@@ -39,6 +43,7 @@ function KaperiPortfolio() {
 
             ))}
         </div>
+        </>
     )
 
 }
