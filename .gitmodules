@@ -1,3 +1,3 @@
 [submodule "src/styles/scss"]
 	path = src/styles/scss
-	url = git@github.com:captainkapnap/scss-template.git
+	url = https://github.com/captainkapnap/scss-template.git
