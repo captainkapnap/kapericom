@@ -27,7 +27,7 @@ function ICodeThis() {
                 <label
                     htmlFor="input-label-move"
                     className="input-label-move__label input_label_remove_formatting"
-                >Enter Your Name</label>
+                >Enter Something</label>
                 <IcT icons="flame" classNameCustom="input-label-move__icon" />
             </div>
         </div>
