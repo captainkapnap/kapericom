@@ -2,6 +2,7 @@
 type ListofPages = { type: "Component" | "Template", fileName: string, title: string, desc: string}[]
 
 export const listOfPages: ListofPages = [
+    {type: "Component", fileName: 'input-boxes.tsx', title: 'Input Box Template', desc: ''},
     {type: "Template", fileName: 'tictactoe-dnd.tsx', title: 'Tic Tac Toe', desc: ''},
     {type: "Component", fileName: 'fluid-navbar.tsx', title: 'Fluid Navbar', desc: ''},
     {type: "Template", fileName: 'active-wandering.tsx', title: 'Active Wandering', desc: ''},

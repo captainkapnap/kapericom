@@ -21,7 +21,6 @@ export default function Home() {
         <section className='' id="portfolio">
           <div className='flex justify-center'>
               <KaperiPortfolio />
-
           </div>
         </section>
       </main>
