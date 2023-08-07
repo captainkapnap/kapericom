@@ -1,4 +1,5 @@
-import 'src/styles/scss/main.scss';
+// import '/src/styles/scss/main.scss';
+import '../styles/scss/main.scss';
 import { type AppType } from "next/dist/shared/lib/utils";
 import "~/styles/globals.css";
 import "~/styles/app.css";
