@@ -1,99 +1,44 @@
-import { useScroll, motion, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useScroll, motion, useTransform, MotionValue, useMotionValueEvent } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import Hero from "./cats-framer-motion/00-hero";
+import CatHouse from "./cats-framer-motion/01-catHouse";
+import WizardKitty from "./cats-framer-motion/02-wizardKitty"
+
+
+// .onChange is depracated... have to use useMotionValueEvent() now
+// https://stackoverflow.com/questions/65647918/framer-motion-not-updating-scrollyprogress#:~:text=For%20example%2C%20the%20onChange%20on,triggering%20react%20to%20re%2Drender.&text=Note%20that%20now%20onChange()%20is%20deprecated%20and%20replaced%20with%20useMotionValueEvent()%20.
+
+export function useCheckYProgress(YProgress: MotionValue, consoleLog: boolean, WhichJSX?: string) {
+    useMotionValueEvent(YProgress, "change", (latest) => {
+        if (consoleLog === true) {
+            console.log(WhichJSX, latest);
+        } else {
+            return latest;
+        }
+    })
+}
 
 function ICodeThis() {
     // ================ STATE ================
-
+    
     // ================ HELPERS ================
-    function CatHouse() {
-        // ================ STATE ================
-        const targetRef = useRef<HTMLDivElement | null>(null);
 
-        // ================ FRAMER-MOTION STATE ================
-        const { scrollYProgress } = useScroll({
-            target: targetRef,
-            offset: ["start end", "end start"],
-        })
-
-        //                                            progress, opacity values
-        const opacity = useTransform(scrollYProgress, [0.16, 0.75, 0.83], [1, 1, 0])
-        const y = useTransform(scrollYProgress, [0.16, 0.5, 0.83], ["0%", "0%", "-160%"])
-        const scale = useTransform(scrollYProgress, [0.16, 0.5, 0.83], [1, 4, 20])
-        const position = useTransform(scrollYProgress, (pos: number) =>
-            pos >= 1 ? "relative" : "fixed"
-        );
-
-        // ================ LIFECYCLE ================
-        // useEffect(() => {
-        //     const unsubscribe = scrollYProgress.onChange(value => {
-        //         console.log("Scroll Progress:", value);
-        //     });
-        
-        //     return () => {
-        //         // Cleanup: remove the listener when the component is unmounted
-        //         unsubscribe();
-        //     };
-        // }, [scrollYProgress]);
-
-        // ================ RETURN ================
-
+    function EmptySection() {
         return (
-            <motion.section ref={targetRef} className="h-[500vh] bg-blue-200">
-                <div className='flex justify-center'>
-                    <motion.img style={{ position, scale, y }} src="/images/cats/catHouse.png" alt="" className="" />
-                </div>
-            </motion.section>
+            <section className='h-[100vh] border-4 border-purple-500'>
+
+            </section>
         )
     }
-
-    function WizardKitty() {
-        // ================ STATE ================
-        const targetRef = useRef<HTMLDivElement | null>(null);
-
-        // ================ FRAMER-MOTION STATE ================
-        const { scrollYProgress } = useScroll({
-            target: targetRef,
-            offset: ["start end", "end start"],
-        })
-
-        //                                            progress, opacity values
-        const opacity = useTransform(scrollYProgress, [0.16, 0.83], [1, 0])
-        const y = useTransform(scrollYProgress, [0, 0.1], ["-100%", "0%"])
-        const scale = useTransform(scrollYProgress, [0, 0.1], [1, 2])
-        const position = useTransform(scrollYProgress, (pos: number) =>
-            pos >= 1 ? "relative" : "fixed"
-        );
-
-        // ================ LIFECYCLE ================
-        useEffect(() => {
-            const unsubscribe = scrollYProgress.onChange(value => {
-                console.log("Scroll Progress:", value);
-            });
-        
-            return () => {
-                // Cleanup: remove the listener when the component is unmounted
-                unsubscribe();
-            };
-        }, [scrollYProgress]);
-
-        // ================ RETURN ================
-
-        return (
-            <motion.section ref={targetRef} className="h-[200vh] bg-slate-600">
-                <div className='flex justify-center'>
-                    <motion.img style={{ scale,  y }} src="/images/cats/wizardKitty.png" alt="" className="" />
-                </div>
-            </motion.section>
-        )
-    }
-
 
     // ================ RETURN ================
     return (
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="">
+        <div id="bodyDiv" className="w-full overflow-x-hidden">
+            <Hero />
             <CatHouse />
             <WizardKitty />
+            <EmptySection />
         </div>
       </div>
 
