@@ -76,7 +76,7 @@ export default function Hero() {
             x_hiThere: "80%",
         }
     }
-    
+
     const AO: AO_Type = {
       initial: 0.16,
       finishGrowing: 0.3,
@@ -124,7 +124,7 @@ export default function Hero() {
 
     // ================ FRAMER MOTION LIFE CYCLE ================
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        console.log(latest)
+        // console.log(latest)
         if (latest >= AO.wantToSee && latest <= AO.comeOnIn) {
             setSpeechBubble("/images/cats/speechBubbleSeeHome.png");
         } else if (latest >= AO.comeOnIn) {
@@ -137,8 +137,8 @@ export default function Hero() {
   // ================ RETURN ================
   return (
     <section ref={targetRef}>
-      <div className={`${heroHeight} border-4 border-emerald-500 bg-blue-200 `}>
-        <div className=' border-4 border-white z-30 flex justify-center'>
+      <div className={`${heroHeight} bg-blue-200 `}>
+        <div className='z-30 flex justify-center'>
             <motion.div style={{ scale }} className="fixed top-4 z-10">
               <img src="/images/cats/happyCat.png" alt="" />
             </motion.div>

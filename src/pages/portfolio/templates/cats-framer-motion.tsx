@@ -29,7 +29,7 @@ function ICodeThis() {
     // ================ RETURN ================
     return (
       <div id="toggleDarkDiv" className="dark">
-        <div id="bodyDiv" className="w-full overflow-x-hidden">
+        <div id="bodyDiv" className="w-full overflow-x-clip">
             <Hero />
             <CatHouse />
             <WizardKitty />
