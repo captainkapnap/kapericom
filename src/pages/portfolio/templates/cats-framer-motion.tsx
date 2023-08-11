@@ -1,5 +1,3 @@
-import { useScroll, motion, useTransform, MotionValue, useMotionValueEvent } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import Hero from "./cats-framer-motion/00-hero";
 import CatHouse from "./cats-framer-motion/01-catHouse";
 import WizardKitty from "./cats-framer-motion/02-wizardKitty"
@@ -7,16 +5,13 @@ import WizardKitty from "./cats-framer-motion/02-wizardKitty"
 
 // .onChange is depracated... have to use useMotionValueEvent() now
 // https://stackoverflow.com/questions/65647918/framer-motion-not-updating-scrollyprogress#:~:text=For%20example%2C%20the%20onChange%20on,triggering%20react%20to%20re%2Drender.&text=Note%20that%20now%20onChange()%20is%20deprecated%20and%20replaced%20with%20useMotionValueEvent()%20.
+export const breakpoints = {
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+  };
 
-export function useCheckYProgress(YProgress: MotionValue, consoleLog: boolean, WhichJSX?: string) {
-    useMotionValueEvent(YProgress, "change", (latest) => {
-        if (consoleLog === true) {
-            console.log(WhichJSX, latest);
-        } else {
-            return latest;
-        }
-    })
-}
 
 function ICodeThis() {
     // ================ STATE ================

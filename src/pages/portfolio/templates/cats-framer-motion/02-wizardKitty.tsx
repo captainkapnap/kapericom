@@ -1,6 +1,6 @@
 import { useScroll, motion, useTransform, MotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { useCheckYProgress } from '../cats-framer-motion'
+import { breakpoints } from '../cats-framer-motion'
 
 export default function WizardKitty() {
     // ================ STATE ================
@@ -33,7 +33,6 @@ export default function WizardKitty() {
 
 
     // ================ FRAMER MOTION LIFE CYCLE ================
-    // useCheckYProgress(scrollYProgress, true, "WizKitty: ")
     
 
     // ================ RETURN ================

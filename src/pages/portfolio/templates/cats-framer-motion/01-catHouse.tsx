@@ -1,6 +1,6 @@
 import { useScroll, motion, useTransform, MotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { useCheckYProgress } from '../cats-framer-motion'
+import { breakpoints } from '../cats-framer-motion'
 
 export default function CatHouse() {
     // ================ STATE ================
@@ -25,9 +25,6 @@ export default function CatHouse() {
 
 
     // ================ FRAMER MOTION LIFE CYCLE ================
-    // useCheckYProgress(scrollYProgress, true, "WizKitty: ")
-    const yProgress = useCheckYProgress(scrollYProgress, false);
-    console.log("yProgress: ", yProgress)
 
 
     // ================ RETURN ================
