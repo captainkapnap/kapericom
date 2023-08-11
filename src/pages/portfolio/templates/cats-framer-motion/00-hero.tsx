@@ -76,7 +76,8 @@ export default function Hero() {
             x_hiThere: "80%",
         }
     }
-    let AO: AO_Type = {
+    
+    const AO: AO_Type = {
       initial: 0.16,
       finishGrowing: 0.3,
       hiThere: 0.35,
