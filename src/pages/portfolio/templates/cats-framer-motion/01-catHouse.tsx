@@ -2,11 +2,40 @@ import { useScroll, motion, useTransform, useMotionValueEvent } from "framer-mot
 import { useRef, useEffect, useState } from "react";
 import { breakpoints } from '../cats-framer-motion'
 
+// _____________________________________________________
+// THERE IS GOOD INFO ON REFS HERE... 
+// store getBoundingClientRect in state
+// set state on component mount in useEffect w/ [] dep
+// this lets the ref={imageRef} set first before setting state
+// _____________________________________________________
+
 export default function CatHouse() {
     // ================ STATE ================
     const targetRef = useRef<HTMLDivElement | null>(null);
+    const imageRef = useRef<HTMLDivElement | null>(null);
+    // const [houseCoords, setHouseCoords] = useState<DOMRect | null>(null);
+    const [screenSize, setScreenSize] = useState(() => {
+        if (typeof window !== 'undefined') {
+          return window.innerWidth;
+        }
+        return breakpoints.md; // default value
+      });
 
     // ================ FRAMER-MOTION STATE ================
+    let AO_Right_Val = "1rem";
+    let smokeHeight = "100%";
+    let smokeWidth = "100%";
+    let smokeTop = "-3rem";
+    if (screenSize <= breakpoints.sm) {
+        AO_Right_Val = "1.7rem"
+        smokeHeight = "40%";
+        smokeWidth = "40%";
+        smokeTop = "-2.6rem";
+      } else {
+        AO_Right_Val = "1rem";
+      }
+
+
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start end", "end start"],
@@ -40,7 +69,7 @@ export default function CatHouse() {
         )
     const y = useTransform(scrollYProgress, [AO.startGrowing, AO.startMovingIn, AO.finishGrowing], ["0%", "0%", "-250%"])
     const scaleHouse = useTransform(scrollYProgress, 
-        [AO.initial, AO.startGrowing, AO.midGrowing, AO.finishGrowing], 
+        [AO.initial, AO.heroKittyGone, AO.midGrowing, AO.finishGrowing], 
         [AO.scale_Initial, AO.scale_Initial, AO.scale_midGrowing, AO.scale_finishGrowing]
         );
     const scaleSmoke = useTransform(scrollYProgress, [AO.initial], [AO.scale_smokeInitial])
@@ -51,11 +80,16 @@ export default function CatHouse() {
 
 
     // ================ LIFECYCLE ================
-
+    // useEffect(() => {
+    //     if (imageRef.current) {
+    //         setHouseCoords(imageRef.current.getBoundingClientRect());
+    //     }
+    // }, []);
 
     // ================ FRAMER MOTION LIFE CYCLE ================
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         console.log(latest)
+        // console.log("imageRef", houseCoords?.right)
     });
 
     // ================ RETURN ================
@@ -64,9 +98,9 @@ export default function CatHouse() {
         <section ref={targetRef}>
             <motion.div style={{ backgroundColor }} className="h-[500vh]">
                 <div className='sticky top-[20%] flex justify-center items-start '>
-                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative'>
-                        <img src="/images/cats/catHouse.png" alt="" className="" />
-                        <motion.div style={{ scale: scaleSmoke }} className='absolute -top-12 right-4'>
+                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative' ref={imageRef}>
+                        <img src="/images/cats/catHouse.png" alt="" className=""  />
+                        <motion.div style={{ scale: scaleSmoke, right: AO_Right_Val, height: smokeHeight, width: smokeWidth, top: smokeTop  }} className='absolute'>
                             <img src="/images/cats/smoke.gif" alt=""  />
                         </motion.div>
                     </motion.div>
