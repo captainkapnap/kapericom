@@ -116,9 +116,9 @@ export default function CatHouse() {
         <section ref={targetRef}>
             <motion.div style={{ backgroundColor }} className="h-[500vh]">
                 <div className='sticky top-[20%] flex justify-center items-start '>
-                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative border-2 border-pink-500' ref={imageRef}>
+                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative' ref={imageRef}>
                         <img src="/images/cats/catHouse.png" alt="" className=""  />
-                        <motion.div style={{ scale: scaleSmoke, right: smokeRight, height: smokeHeight, width: smokeWidth, top: smokeTop  }} className='absolute flex border-2 border-white'>
+                        <motion.div style={{ scale: scaleSmoke, right: smokeRight, height: smokeHeight, width: smokeWidth, top: smokeTop  }} className='absolute flex'>
                             <img src="/images/cats/smoke.gif" alt=""  />
                         </motion.div>
                     </motion.div>
