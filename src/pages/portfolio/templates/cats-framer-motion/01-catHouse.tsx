@@ -22,18 +22,22 @@ export default function CatHouse() {
       });
 
     // ================ FRAMER-MOTION STATE ================
-    let AO_Right_Val = "1rem";
-    let smokeHeight = "100%";
-    let smokeWidth = "100%";
-    let smokeTop = "-3rem";
+    let smokeRight = "0.6rem";
+    let smokeHeight = "40%";
+    let smokeWidth = "50%";
+    let smokeTop = "-4rem";
     if (screenSize <= breakpoints.sm) {
-        AO_Right_Val = "1.7rem"
+        smokeRight = "1.7rem"
         smokeHeight = "40%";
         smokeWidth = "40%";
-        smokeTop = "-2.6rem";
-      } else {
-        AO_Right_Val = "1rem";
-      }
+        smokeTop = "-3.4rem";
+      } 
+    //   else {
+    //     smokeRight = "1rem";
+    //     smokeHeight = "100%";
+    //     smokeWidth = "100%";
+    //     smokeTop = "-3rem";
+    //   }
 
 
     const { scrollYProgress } = useScroll({
@@ -52,7 +56,7 @@ export default function CatHouse() {
         initial: 0,
         heroKittyGone: 0.16,
         startGrowing: 0.25,
-        midGrowing: 0.4,
+        midGrowing: 0.35,
         startMovingIn: 0.45,
         finishGrowing: 0.7,
         makeHouseInvis: 0.8,
@@ -86,6 +90,20 @@ export default function CatHouse() {
     //     }
     // }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+          setScreenSize(window.innerWidth);
+        };
+      
+        window.addEventListener('resize', handleResize);
+        handleResize();
+      
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
+
     // ================ FRAMER MOTION LIFE CYCLE ================
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         console.log(latest)
@@ -98,9 +116,9 @@ export default function CatHouse() {
         <section ref={targetRef}>
             <motion.div style={{ backgroundColor }} className="h-[500vh]">
                 <div className='sticky top-[20%] flex justify-center items-start '>
-                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative' ref={imageRef}>
+                    <motion.div style={{ scale: scaleHouse, y, opacity }} className='relative border-2 border-pink-500' ref={imageRef}>
                         <img src="/images/cats/catHouse.png" alt="" className=""  />
-                        <motion.div style={{ scale: scaleSmoke, right: AO_Right_Val, height: smokeHeight, width: smokeWidth, top: smokeTop  }} className='absolute'>
+                        <motion.div style={{ scale: scaleSmoke, right: smokeRight, height: smokeHeight, width: smokeWidth, top: smokeTop  }} className='absolute flex border-2 border-white'>
                             <img src="/images/cats/smoke.gif" alt=""  />
                         </motion.div>
                     </motion.div>
