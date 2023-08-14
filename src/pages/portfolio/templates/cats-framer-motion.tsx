@@ -20,7 +20,7 @@ function ICodeThis() {
 
     function EmptySection() {
         return (
-            <section className='h-[100vh] border-4 border-purple-500'>
+            <section className='h-[100vh] bg-slate-950'>
 
             </section>
         )

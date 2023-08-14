@@ -1,4 +1,4 @@
-import { useScroll, motion, useTransform, useMotionValueEvent } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { breakpoints } from '../cats-framer-motion'
 
@@ -105,10 +105,10 @@ export default function CatHouse() {
 
 
     // ================ FRAMER MOTION LIFE CYCLE ================
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        console.log(latest)
-        // console.log("imageRef", houseCoords?.right)
-    });
+    // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    //     console.log(latest)
+    //     // console.log("imageRef", houseCoords?.right)
+    // });
 
     // ================ RETURN ================
 
