@@ -33,7 +33,7 @@ export default function WizardKitty() {
 
     const x_SpeechBubble = useTransform(scrollYProgress,
         [AO.initial, AO.wkSticky],
-        ["-120%", "0%"]
+        ["-120%", "-10%"]
     );
     const text_opacity = useTransform(scrollYProgress,
         [AO.initial, AO.wkSticky, AO.firstText],
@@ -92,8 +92,8 @@ export default function WizardKitty() {
                     
                     <motion.div style={{ x: x_SpeechBubble }} className='absolute w-[45%] md:w-[21vw] h-max-[200px] flex items-start'>
                         <img src="/images/cats/speechBubbleBlankRight.png" alt="" className='w-full max-w-[220px]' />
-                        <motion.div style={{ opacity: text_opacity }} className='absolute flex justify-center items-center'>
-                            <p className='text-slate-950 font-bold p-3 pt-4 md:p-4 leading-tight md:leading-normal text-md md:text-xl text-center'>{msg}</p>
+                        <motion.div style={{ opacity: text_opacity }} className='absolute flex justify-center items-center xl:max-w-[50%]'>
+                            <p className='text-slate-950 font-bold p-4 pt-4 md:p-4 leading-tight md:leading-normal text-md md:text-xl text-center'>{msg}</p>
                         </motion.div>
                     </motion.div>
 
