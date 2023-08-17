@@ -92,7 +92,7 @@ export default function WizardKitty() {
                     
                     <motion.div style={{ x: x_SpeechBubble }} className='absolute w-[45%] md:w-[21vw] h-max-[200px] flex items-start'>
                         <img src="/images/cats/speechBubbleBlankRight.png" alt="" className='w-full max-w-[220px]' />
-                        <motion.div style={{ opacity: text_opacity }} className='absolute flex justify-center items-center xl:max-w-[50%]'>
+                        <motion.div style={{ opacity: text_opacity }} className='absolute flex justify-center items-center xl:max-w-[50%] border-4 border-red-500'>
                             <p className='text-slate-950 font-bold p-4 pt-4 md:p-4 leading-tight md:leading-normal text-md md:text-xl text-center'>{msg}</p>
                         </motion.div>
                     </motion.div>
